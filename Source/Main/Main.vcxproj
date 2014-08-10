@@ -69,7 +69,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_tmp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <TargetName>$(ProjectName)</TargetName>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
@@ -80,12 +80,12 @@
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_tmp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_tmp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <TargetName>$(ProjectName)</TargetName>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
@@ -96,7 +96,7 @@
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_tmp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
