@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{9b867c67-833b-4ab6-bdb4-688b62d7680f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tools">
+      <UniqueIdentifier>{a124a9d9-8a94-4082-bec8-9788c823eda7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tools\Assert">
+      <UniqueIdentifier>{2d47690a-ded0-4ee5-9967-1c92c1da8393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tools\Converters">
+      <UniqueIdentifier>{79f2b2f0-7512-422a-88e8-87179559742b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tools\Introspect">
+      <UniqueIdentifier>{7154127c-a0a8-475a-ae59-e1621f55cb64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tools\Time">
+      <UniqueIdentifier>{d84c20e7-2a1d-44e8-98ef-3cc17c47c6b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Containers">
+      <UniqueIdentifier>{b4f81fae-eb0d-4bca-960c-3dd55d1cc9da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Macros">
+      <UniqueIdentifier>{eb8e55cc-019e-4bd0-aa59-d3a14a24bd00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Math">
+      <UniqueIdentifier>{ab540b21-a5f7-4c4c-a403-10f6ba2a592d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tools\I/O">
+      <UniqueIdentifier>{affdc75c-d6d0-455a-9828-d546e40f2888}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Preincludes">
+      <UniqueIdentifier>{c3bc64bb-8413-4c0a-a7fb-6f311625eb17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Allocator">
+      <UniqueIdentifier>{45bc3f55-92a3-4198-9018-b016764c17f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Tools\Memory">
+      <UniqueIdentifier>{c8f50d62-5933-421d-8ef9-94ce8c647eed}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="XAssert.cpp">
+      <Filter>Source\Tools\Assert</Filter>
+    </ClCompile>
+    <ClCompile Include="ClassInfo.cpp">
+      <Filter>Source\Tools\Introspect</Filter>
+    </ClCompile>
+    <ClCompile Include="Member.cpp">
+      <Filter>Source\Tools\Introspect</Filter>
+    </ClCompile>
+    <ClCompile Include="StringConvert.cpp">
+      <Filter>Source\Tools\Converters</Filter>
+    </ClCompile>
+    <ClCompile Include="StopWatch.cpp">
+      <Filter>Source\Tools\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Math3D.cpp">
+      <Filter>Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="FileOpener.cpp">
+      <Filter>Source\Tools\I/O</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Memory.cpp">
+      <Filter>Source\Tools\Memory</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="XAssert.h">
+      <Filter>Source\Tools\Assert</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue.h">
+      <Filter>Source\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Array.h">
+      <Filter>Source\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolArray.h">
+      <Filter>Source\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolList.h">
+      <Filter>Source\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="Member.h">
+      <Filter>Source\Tools\Introspect</Filter>
+    </ClInclude>
+    <ClInclude Include="ClassInfo.h">
+      <Filter>Source\Tools\Introspect</Filter>
+    </ClInclude>
+    <ClInclude Include="Introspect.h">
+      <Filter>Source\Tools\Introspect</Filter>
+    </ClInclude>
+    <ClInclude Include="StringConvert.h">
+      <Filter>Source\Tools\Converters</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticCall.h">
+      <Filter>Source\Macros</Filter>
+    </ClInclude>
+    <ClInclude Include="CallOnce.h">
+      <Filter>Source\Macros</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugOnly.h">
+      <Filter>Source\Macros</Filter>
+    </ClInclude>
+    <ClInclude Include="StopWatch.h">
+      <Filter>Source\Tools\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="Math3D.h">
+      <Filter>Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="FileOpener.h">
+      <Filter>Source\Tools\I/O</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Preforwards.h">
+      <Filter>Source\Preincludes</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolAllocator.h">
+      <Filter>Source\Allocator</Filter>
+    </ClInclude>
+    <ClInclude Include="IgnoreMemleak.h">
+      <Filter>Source\Macros</Filter>
+    </ClInclude>
+    <ClInclude Include="Memory.h">
+      <Filter>Source\Tools\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="COut.h">
+      <Filter>Source\Tools\I/O</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

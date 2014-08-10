@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\Component">
+      <UniqueIdentifier>{f14d64aa-12ad-4350-be7b-d6ae2aff1768}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entity">
+      <UniqueIdentifier>{9d85fe3a-f648-429f-a4ff-3d952d994710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\Manager">
+      <UniqueIdentifier>{e72caf82-79a5-49c1-9fbd-e513d7af2489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\Storage">
+      <UniqueIdentifier>{89949559-289a-4e26-b15f-5df2da5acadf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Component\Example">
+      <UniqueIdentifier>{5c89bfec-2da8-49e7-af59-2445157e518f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Entity\Manager">
+      <UniqueIdentifier>{d075af6c-061f-4368-8a54-177115cb11a4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentManager.cpp">
+      <Filter>Source\Component\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.cpp">
+      <Filter>Source\Entity\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentPool.cpp">
+      <Filter>Source\Component\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractComponent.cpp">
+      <Filter>Source\Component</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Entity.h">
+      <Filter>Source\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractComponent.h">
+      <Filter>Source\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentClass.h">
+      <Filter>Source\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentManager.h">
+      <Filter>Source\Component\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="FooComponent.h">
+      <Filter>Source\Component\Example</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Source\Entity\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentPool.h">
+      <Filter>Source\Component\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractComponentPool.h">
+      <Filter>Source\Component\Storage</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

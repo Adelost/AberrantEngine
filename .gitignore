@@ -1,21 +1,21 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# VISUAL STUDIO JUNK
+#==================
+*.sdf
+*.user
+*.suo
+*.opensdf
+*.sdf
+*.autosave
+*.aps
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+# FOLDERS
+#==================
+Binaries/
+Temp/
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
 
-# Executables
-*.exe
-*.out
-*.app
+# TEMP FILES
+#==================
+*.BASE.cpp
+*.LOCAL.cpp
+*.REMOTE.cpp
