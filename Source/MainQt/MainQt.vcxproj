@@ -60,25 +60,25 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../_tmp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../_tmp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../_tmp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../_tmp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
