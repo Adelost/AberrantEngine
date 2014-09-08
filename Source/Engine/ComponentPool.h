@@ -15,6 +15,8 @@ public:
 	{
 		PoolArray::clear();
 		m_indices.clear();
+
+
 	}
 
 // 	void add2(const T& value, int id)

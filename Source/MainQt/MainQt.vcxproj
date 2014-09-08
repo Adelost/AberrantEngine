@@ -60,25 +60,25 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
@@ -116,6 +116,7 @@
       <PrecompiledHeaderFile>Preincludes.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -341,7 +342,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_Win32="$(DefaultQtVersion)" Qt5Version_x0020_x64="Qt 5.0.3 x64" MocOptions="" />
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_Win32="$(DefaultQtVersion)" Qt5Version_x0020_x64="msvc2013_64" MocOptions="" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

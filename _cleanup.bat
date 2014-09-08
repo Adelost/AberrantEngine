@@ -1,6 +1,6 @@
 rd /s/q "Binaries\"
-rd /s/q "_temp\"
+rd /s/q "Temp\"
 rd /s/q "Build\"
-rem ## rd /s/q "Source\ipch"
-rem ## del Source\*.sdf
+rd /s/q "Source\ipch\"
+del "Source\*.sdf"
 rem ## pause

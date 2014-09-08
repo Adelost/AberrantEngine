@@ -69,7 +69,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <TargetName>$(ProjectName)</TargetName>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
@@ -80,12 +80,12 @@
     <LibraryPath>$(LibraryPath)</LibraryPath>
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
     <TargetName>$(ProjectName)</TargetName>
     <IncludePath>../;$(IncludePath)</IncludePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
@@ -96,7 +96,7 @@
     <LibraryPath>$(LibraryPath)</LibraryPath>
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../_temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
+    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -118,6 +118,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

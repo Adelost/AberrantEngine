@@ -156,7 +156,7 @@ public:
 		{
 			m_target = target;
 			m_index = index;
-			ignoreGaps();
+			ignoreGaps()
 		}
 		void reset()
 		{

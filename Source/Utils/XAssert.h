@@ -64,3 +64,4 @@ namespace XAssert
 	do {_XASSERT_UNUSED(condition); _XASSERT_UNUSED(msg);} while(0)
 
 #endif
+
