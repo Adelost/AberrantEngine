@@ -1,19 +1,22 @@
 #include "FileOpener.h"
 
-FileOpener::FileOpener( const char* path )
+namespace ae
 {
-	m_file.open(path);
-}
-
-FileOpener::~FileOpener()
-{
-	m_file.close();
-}
-
-void FileOpener::write( std::string text )
-{
-	if (m_file.is_open())
+	FileOpener::FileOpener(const char* path)
 	{
-		m_file << text.c_str();
+		m_file.open(path);
+	}
+
+	FileOpener::~FileOpener()
+	{
+		m_file.close();
+	}
+
+	void FileOpener::write(std::string text)
+	{
+		if (m_file.is_open())
+		{
+			m_file << text.c_str();
+		}
 	}
 }

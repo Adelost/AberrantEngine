@@ -43,6 +43,9 @@
     <ClCompile Include="AbstractComponent.cpp">
       <Filter>Source\Component</Filter>
     </ClCompile>
+    <ClCompile Include="AbstractComponentPool.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -54,9 +57,6 @@
     <ClInclude Include="AbstractComponent.h">
       <Filter>Source\Component</Filter>
     </ClInclude>
-    <ClInclude Include="ComponentClass.h">
-      <Filter>Source\Component</Filter>
-    </ClInclude>
     <ClInclude Include="ComponentManager.h">
       <Filter>Source\Component\Manager</Filter>
     </ClInclude>
@@ -66,10 +66,13 @@
     <ClInclude Include="EntityManager.h">
       <Filter>Source\Entity\Manager</Filter>
     </ClInclude>
-    <ClInclude Include="ComponentPool.h">
+    <ClInclude Include="AbstractComponentPool.h">
       <Filter>Source\Component\Storage</Filter>
     </ClInclude>
-    <ClInclude Include="AbstractComponentPool.h">
+    <ClInclude Include="ComponentBase.h">
+      <Filter>Source\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentPool.h">
       <Filter>Source\Component\Storage</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,9 +4,8 @@
 
 class Entity;
 
-/// Allows access to logic shared with all components
-
-class AbstractComponent : public Introspect
+/** Allows access to logic shared with all components. */
+class AbstractComponent
 {
 public:
 	virtual void foo(){};

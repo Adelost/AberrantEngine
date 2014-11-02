@@ -1,7 +1,7 @@
 #pragma once
 
-#include <Engine/ComponentClass.h>
-#include <GraphicsEngine/GraphicsEngine.h>
+#include <Engine/ComponentBase.h>
+//#include <GraphicsEngine/GraphicsEngine.h>
 
 
 namespace Component
@@ -10,60 +10,41 @@ namespace Component
 	class Link
 	{
 	public:
-		Link()
-		{
-		}
 		Link(int id)
 		{
+			//m_ptr = T->Create(id);
 		}
-		
-		template<class TT>
-		Link(ComponentClass<TT>* hostComponent)
-		{
-			//int id = hostComponent->entityId();
-			//m_index = hostComponent->get(id);
-		}
-		static void initClass(T* host)
-		{
-			m_host = host;
-		}
+
 		T* get()
 		{
-			//return &m_host->at(m_index);
 			return new T();
 		}
+
 		T* operator->()
-		{this
+		{
 			return get();
 		}
 
 	private:
-		int m_index;
-		static T* m_host;
+		static T* m_ptr;
 	};
 }
 
-template<class T>
-T* Component::Link<T>::m_host;
-
 namespace Component
 {
-	class Transform : public ComponentClass<Transform> {};
-	class Arg : public ComponentClass<Arg> {};
+	class Transform : public ComponentBase < Transform > {};
+	class Arg : public ComponentBase < Arg > {};
 
-	class Graphic : public ComponentClass<Graphic>
+	class Graphic : public ComponentBase < Graphic >
 	{
 	public:
-		Graphic() : cArg(this), cTransform(this)
+		Graphic(int id) : cTransform(id)
 		{
+			this->Create(id);
 		}
 
 	public:
-		Link<Arg> cArg;
 		Link<Transform> cTransform;
-
-		int id;
-		
 	};
 }
 
@@ -72,12 +53,10 @@ namespace System
 	class Graphic
 	{
 	public:
-		Graphic()
-		{
-		}
+		Graphic() {}
 		void update();
 	private:
-		GraphicsEngine graphicEngine;
+		//GraphicsEngine graphicEngine;
 	};
 
 	static Graphic graphic;

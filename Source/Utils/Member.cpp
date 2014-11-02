@@ -42,12 +42,13 @@ char* Member::typeName()
 
 std::string Member::valueAsString()
 {
-	if (type() == Member::Int)
+	/*if (type() == Member::Int)
 		return StringConvert::toString(value<int>());
 	if (type() == Member::Float)
 		return StringConvert::toString(value<float>());
 	if (type() == Member::Bool)
-		return StringConvert::toString(value<bool>());
+		return StringConvert::toString(value<bool>());*/
+
 	return "Unkown";
 }
 

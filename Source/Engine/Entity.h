@@ -4,22 +4,23 @@
 
 class EntityManager;
 
-/// Standard representation of a game entity / game object
-
+/** Standard representation of a game entity / game object. */
 class Entity
 {
 public:
 	Entity();
 	Entity(int id, int uniqueId);
 	
-	/// Add component
-	template<class T> void addComponent(const T& component);
-	/// Remove component
-	template<class T> void removeComponent();
+	/** Add component. */
+ 	template<class T> 
+	void addComponent(const T& component);
+	/** Remove component. */
+	template<class T> 
+	void removeComponent();
 	void remove() {}
 	void clone() {}
 
-	/// Get component
+	/** Get component. */
 	template<class T> T* component();
 	int id();
 

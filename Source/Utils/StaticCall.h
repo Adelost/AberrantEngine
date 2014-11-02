@@ -1,18 +1,18 @@
 #pragma once
 
-// Allows code to be called automatically during the start
-// of the program. Only to be used in .cpp
-
+/** Allows code to be called automatically during the start of the program. Only
+    to be used in .cpp files. Be sure to watch out for "static initialization
+    order fiasco", http://www.parashift.com/c++-faq/static-init-order.html. */
 #define STATIC_CALL(CODE) \
 namespace \
 { \
-	class StaticCall \
+	class _StaticCall \
 	{ \
 	public: \
-		StaticCall() \
+		_StaticCall() \
 		{ \
 			CODE \
 		} \
 	}; \
-	StaticCall _staticCall; \
+	_StaticCall _staticCall; \
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ComponentClass.h"
+#include "ComponentBase.h"
 #include "ComponentPool.h"
 #include <Utils/Array.h>
 #include <Utils/Util.h>
@@ -28,9 +28,9 @@ private:
 template<class T>
 int ComponentManager::storageIndexFromComponent()
 {
-	int index = ComponentClass<T>::typeId();
+	int index = ComponentBase<T>::typeId();
 	xassert_msg(index != -1,
-	            "Component must be initialized before use");
+	            "Component must be initialized before use.");
 	return index;
 }
 
@@ -73,18 +73,18 @@ void ComponentManager::addType()
 {
 	// Make sure T is a component i.e. inherits from Component Type"
 
-	xassert_msg((Util::isOfType<T, ComponentClass<T>>()),
-	            "Only components are allowed");
-	xassert_msg((ComponentClass<T>::typeId() == -1),
-	            "Component already initialized, please remove duplicate");
+	xassert_msg((Util::isOfType<T, ComponentBase<T>>()),
+	            "Only components are allowed.");
+	xassert_msg((ComponentBase<T>::typeId() == -1),
+	            "Component already initialized, please remove duplicate.");
 
-	int id = ComponentClass<T>::typeId();
+	int id = ComponentBase<T>::typeId();
 	if (id == -1)
 	{
 		// Give type an id
 
 		int id = storages.count();
-		ComponentClass<T>::setTypeId(id);
+		ComponentBase<T>::setTypeId(id);
 
 		// Add new storage
 

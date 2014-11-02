@@ -105,6 +105,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,7 +119,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MultiProcessorCompilation>
+      </MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,19 +163,34 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ClassInfo.cpp" />
+    <ClCompile Include="Console.cpp" />
     <ClCompile Include="FileOpener.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Math3D.cpp" />
     <ClCompile Include="Member.cpp" />
     <ClCompile Include="Memory.cpp" />
+    <ClCompile Include="Random.cpp" />
     <ClCompile Include="StopWatch.cpp" />
+    <ClCompile Include="Format.cpp" />
     <ClCompile Include="StringConvert.cpp" />
-    <ClCompile Include="Util.cpp" />
+    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="_WindowsConsole.cpp" />
     <ClCompile Include="XAssert.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithm.h" />
     <ClInclude Include="Array.h" />
-    <ClInclude Include="COut.h" />
+    <ClInclude Include="Console.h" />
+    <ClInclude Include="Cast.h" />
+    <ClInclude Include="Output.h" />
+    <ClInclude Include="_WindowsConsole.h" />
+    <ClInclude Include="IdPoolArray.h" />
+    <ClInclude Include="NonCopyable.h" />
+    <ClInclude Include="PoolAlloc.h" />
+    <ClInclude Include="Random.h" />
+    <ClInclude Include="StablePoolArray.h" />
+    <ClInclude Include="PoolArray.h" />
+    <ClInclude Include="StableArray.h" />
     <ClInclude Include="IgnoreMemleak.h" />
     <ClInclude Include="CallOnce.h" />
     <ClInclude Include="ClassInfo.h" />
@@ -181,20 +198,28 @@
     <ClInclude Include="DebugOnly.h" />
     <ClInclude Include="FileOpener.h" />
     <ClInclude Include="Memory.h" />
-    <ClInclude Include="PoolAllocator.h" />
+    <ClInclude Include="PoolArrayBase.h" />
     <ClInclude Include="Preforwards.h" />
     <ClInclude Include="Introspect.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Math3D.h" />
     <ClInclude Include="Member.h" />
-    <ClInclude Include="PoolArray.h" />
+    <ClInclude Include="NativePoolArray.h" />
     <ClInclude Include="PoolList.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="StaticCall.h" />
     <ClInclude Include="StopWatch.h" />
+    <ClInclude Include="Format.h" />
     <ClInclude Include="StringConvert.h" />
-    <ClInclude Include="Util.h" />
+    <ClInclude Include="Time.h" />
     <ClInclude Include="XAssert.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

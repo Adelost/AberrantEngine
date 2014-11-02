@@ -1,20 +1,19 @@
 #include "Simulation.h"
 
 #include <Engine/Engine.h>
-#include <Components/AllComponents.h>
-#include <Components/Input.h>
-#include <Utils/Util.h>
+//#include <Components/AllComponents.h>
+//#include <Components/Input.h>
 #include <Utils/Array.h>
 #include <vector>
 
 Simulation::Simulation()
 {
-	//Component::Graphic::initClass();
-	Component::Apple::initClass();
-	Component::Banana::initClass();
-	Component::Citrus::initClass();
+	////Component::Graphic::initClass();
+	//Component::Apple::initClass();
+	//Component::Banana::initClass();
+	//Component::Citrus::initClass();
 
-	Entity* e;
+	/*Entity* e;
 	e = Entity::create();
 	auto cApple = Component::Apple::create(e);
 	int size = sizeof(Component::Apple);
@@ -26,32 +25,32 @@ Simulation::Simulation()
 	Component::Citrus::create(e);
 
 	Component::Input input;
-	input.button("Forward");
+	input.button("Forward");*/
 }
 
 
 void Simulation::update(float deltaTime)
 {
-	//System::input
+	////System::input
 
-	for (auto cApple : Component::Apple::iterator)
-	{
-		int id = cApple->entityId();
-		int size = sizeof(cApple);
+	//for (auto cApple : Component::Apple::iterator)
+	//{
+	//	int id = cApple->entityId();
+	//	int size = sizeof(cApple);
 
-		auto cBanana = Component::Banana::get(id);
-		if (!cBanana)
-			continue;
-		auto cCitrus = Component::Citrus::get(id);
-		if (!cCitrus)
-			continue;
-	}
+	//	auto cBanana = Component::Banana::get(id);
+	//	if (!cBanana)
+	//		continue;
+	//	auto cCitrus = Component::Citrus::get(id);
+	//	if (!cCitrus)
+	//		continue;
+	//}
 
-	for (auto cGraphic : Component::Graphic::iterator)
-	{
-		Component::Transform* cTransform = cGraphic->cTransform.get();
-		//int id = cGraphic->entityId();
-	}
+	//for (auto cGraphic : Component::Graphic::iterator)
+	//{
+	//	Component::Transform* cTransform = cGraphic->cTransform.get();
+	//	//int id = cGraphic->entityId();
+	//}
 }
 
 

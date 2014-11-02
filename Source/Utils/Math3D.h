@@ -2,7 +2,11 @@
 
 #include "Math.h"
 
-class Math3D
+namespace ae
 {
-public:
-};
+	/**	3D vector utility class. Not implemented yet. */
+	class Math3D
+	{
+	public:
+	};
+}

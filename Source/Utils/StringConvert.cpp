@@ -2,39 +2,35 @@
 
 #include <sstream> // stringstream
 
-std::string StringConvert::toString(int a)
+namespace ae
 {
-	return std::to_string(a);
-}
+	int StringConvert::toInt(std::string s)
+	{
+		int n;
+		std::stringstream ss(s);
+		ss >> n;
+		if (ss.fail())
+			n = 0;
 
-std::string StringConvert::toString(float a)
-{
-	return std::to_string(a);
-}
+		return n;
+	}
 
-std::string StringConvert::toString(bool a)
-{
-	if (a)
-		return "True";
-	return "False";
-}
+	float StringConvert::toFloat(std::string s)
+	{
+		float n;
+		std::stringstream ss(s);
+		ss >> n;
+		if (ss.fail())
+			n = 0.0f;
 
-int StringConvert::toInt(std::string s)
-{
-	int n;
-	std::stringstream ss(s);
-	ss >> n;
-	if (ss.fail())
-		n = -1;
-	return n;
-}
+		return n;
+	}
 
-float StringConvert::toFloat(std::string s)
-{
-	float n;
-	std::stringstream ss(s);
-	ss >> n;
-	if (ss.fail())
-		n = -1.0f;
-	return n;
+	std::string StringConvert::toString(bool in)
+	{
+		if (in)
+			return "true";
+
+		return "false";
+	}
 }

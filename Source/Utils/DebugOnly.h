@@ -1,9 +1,15 @@
 #pragma once
 
-// Make sure code is only run in debug
+#ifdef _DEBUG
+/** Make sure code is only run in debug. */
+#define DEBUG_ONLY(CODE) CODE
+#else
+#define DEBUG_ONLY(CODE) 
+#endif
 
 #ifdef _DEBUG
-#define DEBUG_ONLY(CODE) {CODE}
+/** Make sure code is only run in release. */
+#define RELEASE_ONLY(CODE) 
 #else
-#define DEBUG_ONLY(CODE) {}
+#define RELEASE_ONLY(CODE) CODE
 #endif

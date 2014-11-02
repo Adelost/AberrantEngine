@@ -3,25 +3,27 @@
 #include "ClassInfo.h"
 
 #define INTROSPECT(NAME, MEMBERS) \
-ClassInfo& introspect() \
+ae::ClassInfo& introspect() \
 { \
-	static ClassInfo info; \
+	static ae::ClassInfo info; \
 	info._setTarget(this); \
 	if (!info._hasInit()) \
-	{ \
+				{ \
 		info._init(NAME); \
 		MEMBERS \
-	} \
+				} \
 	return info; \
 }
 
 #define MEMBER(TYPE, VAR) \
 	info._add(TYPE, &VAR, #VAR);
 
-/// Allows introspection of subclasses.
-
-class Introspect
+namespace ae
 {
-public:
-	virtual INTROSPECT("Unkown",)
-};
+	/** Allows introspection of subclasses. */
+	class Introspect
+	{
+	public:
+		virtual INTROSPECT("Unkown", )
+	};
+}

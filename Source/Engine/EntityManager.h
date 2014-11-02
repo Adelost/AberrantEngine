@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Entity.h"
-#include <Utils/PoolArray.h>
+//#include <Utils/NativePoolArray.h>
 
 class EntityManager
 {
@@ -10,5 +10,5 @@ public:
 	Entity* create();
 
 private:
-	PoolArray<Entity> entities;
+	//NativePoolArray<Entity> entities;
 };

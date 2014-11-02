@@ -3,14 +3,17 @@
 #include <string>
 #include <fstream>
 
-class FileOpener
+namespace ae
 {
-public:
-	FileOpener(const char* path);
-	~FileOpener();
+	class FileOpener
+	{
+	public:
+		FileOpener(const char* path);
+		~FileOpener();
 
-	void write(std::string text);
+		void write(std::string text);
 
-private:
-	std::ofstream m_file;
-};
+	private:
+		std::ofstream m_file;
+	};
+}

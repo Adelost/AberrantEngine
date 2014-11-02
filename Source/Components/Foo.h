@@ -1,12 +1,11 @@
 #pragma once
 
-#include "Engine/ComponentClass.h"
+#include "Engine/ComponentBase.h"
 
 namespace Components
 {
-	struct Foo : public ComponentClass<Foo>
+	struct Foo : public ComponentBase<Foo>
 	{
-	public:
 		Foo()
 		{
 			flag = false;
@@ -14,20 +13,19 @@ namespace Components
 			health = 3.14f;
 		}
 
-	public:
 		int id;
 		bool flag;
 		float health;
 
 		INTROSPECT
-			("Foo",
-			MEMBER(Member::Int, id)
-			MEMBER(Member::Bool, flag)
-			MEMBER(Member::Float, health)
-			)
+		("Foo",
+		 MEMBER(Member::Int, id)
+		 MEMBER(Member::Bool, flag)
+		 MEMBER(Member::Float, health)
+		)
 	};
 
-	struct Foo2 : public ComponentClass<Foo2>
+	struct Foo2 : public ComponentBase<Foo2>
 	{
 	public:
 		Foo2() {}
@@ -49,7 +47,7 @@ public:
 	int id;
 };
 
-struct A : public ComponentClass<A>
+struct A : public ComponentBase<A>
 {
 	A()
 	{

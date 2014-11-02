@@ -16,6 +16,9 @@
     <ClCompile Include="Precompile.cpp">
       <Filter>Source\Precompile</Filter>
     </ClCompile>
+    <ClCompile Include="Old.cpp">
+      <Filter>Source\Precompile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Precompile.h">

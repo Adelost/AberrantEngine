@@ -3,30 +3,31 @@
 #include <Engine/AbstractComponent.h>
 #include <Engine/ComponentPool.h>
 
-/// Template class all components should inherit from
-/**
-	It is used to manage class specific logic shared with all
-    component such as generating a unique class id used to
-	identify a component.
-*/
-
+/** Template class all components should inherit from. It is used to manage
+	class specific logic shared with all component such as generating a unique
+	class id used to identify a component. */
 template<class T>
-class ComponentClass : public AbstractComponent
+class ComponentBase : public AbstractComponent
 {
-protected:
-	ComponentClass() {}
-
 public:
+	ComponentBase() {}
+	ComponentBase(int id) {}
+
 	static int typeId();
 	static void setTypeId(int id);
 	static void initClass()
 	{
 
 	}
-	static T* create(Entity* entity)
+	static T* Create(Entity* entity)
 	{
 		int id = idFromEntity(entity);
 		s_pool.add(id, T());
+		return s_pool.valueFromId(id);
+	}
+	static T* Create(int id)
+	{
+		//s_pool.add(id, T(id));
 		return s_pool.valueFromId(id);
 	}
 
@@ -40,7 +41,7 @@ public:
 		return s_pool.id(*component);
 	}
 
-	#pragma region Iterator
+#pragma region Iterator
 public:
 	class Iterator
 	{
@@ -55,30 +56,30 @@ public:
 		}
 	};
 	static Iterator iterator;
-	#pragma endregion
+#pragma endregion
 
-private:
+protected:
 	static int s_typeId;
 	static ComponentPool<T> s_pool;
 };
 
 template<class T>
-typename ComponentClass<T>::Iterator ComponentClass<T>::iterator;
+typename ComponentBase<T>::Iterator ComponentBase<T>::iterator;
 
 template<class T>
-int ComponentClass<T>::s_typeId = -1;
+int ComponentBase<T>::s_typeId = -1;
 
 template<class T>
-ComponentPool<T> ComponentClass<T>::s_pool;
+ComponentPool<T> ComponentBase<T>::s_pool;
 
 template<class T>
-int ComponentClass<T>::typeId()
+int ComponentBase<T>::typeId()
 {
 	return s_typeId;
 }
 
 template<class T>
-void ComponentClass<T>::setTypeId(int id)
+void ComponentBase<T>::setTypeId(int id)
 {
 	s_typeId = id;
 }

@@ -7,11 +7,13 @@ EntityManager::EntityManager()
 
 Entity* EntityManager::create()
 {
-	int id = entities.nextIndex();
+	/*int id = entities.nextIndex();
 	static int uniqueId = 0;
 	Entity e(id, uniqueId);
 	uniqueId++;
-	entities.add(e);
+	entities.add(e);*/
 
-	return &entities[id];
+	//return &entities[id];
+
+	return nullptr;
 }

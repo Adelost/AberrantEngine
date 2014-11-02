@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Engine/ComponentClass.h>
+#include <Engine/ComponentBase.h>
 
 #include <map>
 #include <vector>
@@ -34,7 +34,7 @@ namespace System
 		}
 		bool buttonDown(std::string name)
 		{
-			return m_buttons[name].up;
+			return m_buttons[name].down;
 		}
 
 		void setButton(bool pressed, std::string name)
