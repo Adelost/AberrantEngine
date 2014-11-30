@@ -19,13 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AllComponents.h" />
-    <ClInclude Include="Foo.h" />
-    <ClInclude Include="Graphic.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="Fruits.h" />
     <ClInclude Include="Input.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Graphic.cpp" />
+    <ClInclude Include="Time.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
@@ -35,10 +32,15 @@
       <Project>{e78dcaf3-ea20-4d83-be69-ffe3ef42a845}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Time.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C49AB309-C7D0-4AED-859D-40D83D61F89C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Engine</RootNamespace>
+    <ProjectName>Components</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

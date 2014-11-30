@@ -12,20 +12,17 @@ class MainWindow : public QMainWindow
 public:
 	MainWindow();
 
-	void testNetwork();
-	void capFps(float loopDelay);
-	void displayFrameTime(float deltaTime);
-	void setFpsCap(int fps);
 	void setTitle(QString title);
 	void setTitleMessage(QString message);
 
 public slots:
 	void update();
 
-protected:
-
 private:
-	int m_fpsCap;
+	void displayFrameTime();
+	void testNetwork();
+	void adaptToFpsCap();
+
 	QString m_title;
 	QTimer* m_loopTimer;
 	QWidget* m_renderWidget;

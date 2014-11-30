@@ -41,7 +41,7 @@ namespace ae
 		_WindowsConsole::setBackground(color);
 	}
 
-	void Console::setDefaultColors()
+	void Console::restoreDefaultColors()
 	{
 		_WindowsConsole::setColor(7);
 		_WindowsConsole::setBackground(0);

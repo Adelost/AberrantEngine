@@ -1,34 +1,11 @@
-#include "EntityManager.h"
+#include "Entity.h"
 
-#include <Utils/StaticCall.h>
-#include "Engine.h"
-
-ComponentManager* Entity::s_components;
-
-STATIC_CALL(Entity::staticInit();)
-
-Entity* Entity::create()
+namespace ae
 {
-	return Engine::entities.create();
-}
+	StablePoolArray<Entity> Entity::m_pool;
 
-void Entity::staticInit()
-{
-	s_components = &Engine::components;
-}
-
-Entity::Entity()
-{
-
-}
-
-Entity::Entity(int id, int uniqueId)
-{
-	m_id = id;
-	//m_uniqueId = uniqueId;
-}
-
-int Entity::id()
-{
-	return m_id;
+	int Entity::id()
+	{
+		return m_id;
+	}
 }

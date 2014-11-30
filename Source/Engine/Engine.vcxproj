@@ -30,7 +30,7 @@
   <ItemGroup>
     <ClInclude Include="AbstractComponent.h" />
     <ClInclude Include="AbstractComponentPool.h" />
-    <ClInclude Include="ComponentBase.h" />
+    <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentManager.h" />
     <ClInclude Include="ComponentPool.h" />
     <ClInclude Include="Engine.h" />

@@ -1,6 +1,6 @@
 #include <Utils/Array.h>
 #include <Utils/Console.h>
-#include <Utils/Introspect.h>
+#include <Utils/Inspectable.h>
 #include <Utils/Math.h>
 #include <Utils/Memory.h>
 #include <Utils/Format.h>
@@ -10,10 +10,10 @@
 
 using namespace ae;
 
-class Example : Introspect
+class Example : Inspectable
 {
 public:
-	INTROSPECT
+	INSPECTABLE
 	("Example",
 	 MEMBER(Member::Int, someInt)
 	 MEMBER(Member::Bool, someBool)
@@ -49,9 +49,9 @@ void testContainers()
 void testIntrospection()
 {
 	Example foo;
-	std::cout << "Name: " << foo.introspect().name() << "\n";
+	std::cout << "Name: " << foo.inspect().name() << "\n";
 	std::cout << "Members: ";
-	for (auto m : foo.introspect())
+	for (auto m : foo.inspect())
 		std::cout << m.valueAsString() << " ";
 	std::cout << "\n";
 }
@@ -80,13 +80,47 @@ Foo foo()
 	return Foo();
 }
 
+struct Prop
+{
+	class
+	{
+		int value;
+	public:
+		int & operator = (const int &i)
+		{
+			return value = i;
+		}
+		operator int () const
+		{
+			return value;
+		}
+	} alpha;
+
+	class
+	{
+		float value;
+	public:
+		float & operator = (const float &f)
+		{
+			return value = f;
+		}
+		operator float() const
+		{
+			return value;
+		}
+	} bravo;
+};
+
 int main()
 {
+	Prop foo;
+	foo.alpha = 0;
+
 	Console::printTitle() << Math::PI << " Start " << true;
 	Console::printSubtitle() << Format::string("Hello %1 %2 %3 %1")
-	                 % "text"
-	                 % true
-					 % 42;
+	                         % "text"
+	                         % true
+	                         % 42;
 
 	Console::print() << "Hello";
 	Console::print() << "Hello " << "this " << 1 << " me " << false;

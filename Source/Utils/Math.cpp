@@ -6,7 +6,6 @@
 
 namespace ae
 {
-	// Constants
 	const float Math::PI = 3.141592741f;
 	const float Math::TWO_PI = PI * 2.0f;
 	const int Math::INT32_MAX = INT_MAX;
@@ -38,9 +37,9 @@ namespace ae
 		return (int)(x + 0.5f);
 	}
 
-	float Math::lerp(float a, float b, float amount)
+	float Math::lerp(float from, float to, float amount)
 	{
-		return a * amount + b * (1.0f - amount);
+		return from * amount + to * (1.0f - amount);
 	}
 
 	int Math::roundUp(float x)
@@ -88,4 +87,20 @@ namespace ae
 	{
 		return ::abs(x);
 	}
+
+	float Math::seconds(float ms)
+	{
+		return ms / 1000;
+	}
+
+	float Math::milliseconds(float seconds)
+	{
+		return seconds * 1000;
+	}
+
+	float Math::fractionalPart(float x)
+	{
+		return x - roundDown(x);
+	}
+
 }

@@ -1,65 +1,89 @@
 #pragma once
 
-#include <Engine/ComponentBase.h>
+#include <Engine/Component.h>
 
-#include <map>
+#include <unordered_map>
 #include <vector>
+#include <string>
 
-namespace System
+namespace sys
 {
-	class Input
+	class InputSystem
 	{
-	private:
-		struct ButtonState
+	public:
+		class ButtonSystem
 		{
+		public:
+			void update();
+			bool isDown(std::string name);
+			bool down(std::string name);
+			bool up(std::string name);
+			void set(std::string name, bool pressed);
+		};
+	private:
+		struct Button
+		{
+			Button()
+			{
+				state = false;
+				up  = false;
+				down = false;
+			}
+
 			bool state;
 			bool up;
 			bool down;
 		};
 	public:
-		Input()
+		InputSystem()
 		{
-			setButton(true, "Up");
-			setButton(true, "Down");
-			setButton(true, "Left");
-			setButton(true, "Right");
+			//button("Up");
+			//button("Down");
+			//button("Left");
+			//button("Right");
 		}
+		/** Returns true while the virtual button identified by name is held
+			down. */
 		bool button(std::string name)
 		{
 			return m_buttons[name].state;
 		}
+		/** Returns true the first frame the button is released. */
 		bool buttonUp(std::string name)
 		{
 			return m_buttons[name].up;
 		}
+		/** Returns true the first frame the button is pressed. */
 		bool buttonDown(std::string name)
 		{
 			return m_buttons[name].down;
 		}
 
-		void setButton(bool pressed, std::string name)
+		void setButton(std::string name, bool pressed)
 		{
-			ButtonState& b = m_buttons[name];
+			Button& b = m_buttons[name];
 			if (pressed && !b.state)
 			{
 				b.state = pressed;
 				setButtonDown(name);
 			}
-			if (pressed && !b.state)
+			else if (!pressed && b.state)
 			{
 				b.state = pressed;
 				setButtonUp(name);
 			}
 		}
-		
+
 		void update()
 		{
+			// Reset button changes
 			for (std::string& name : changedButton)
 			{
-				ButtonState& b = m_buttons[name];
+				Button& b = m_buttons[name];
 				b.down = false;
 				b.up = false;
 			}
+			changedButton.clear();
 		}
 
 	private:
@@ -79,9 +103,8 @@ namespace System
 		}
 
 		std::vector<std::string> changedButton;
-		std::map<std::string, ButtonState> m_buttons;
-		std::map<std::string, ButtonState> m_buttonsDown;
-		std::map<std::string, ButtonState> m_buttonsUp;
+		std::unordered_map<std::string, Button> m_buttons;
 	};
-	Input input;
+	extern InputSystem Input;
+	extern InputSystem::ButtonSystem Button;
 }

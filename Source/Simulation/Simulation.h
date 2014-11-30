@@ -4,7 +4,5 @@ class Simulation
 {
 public:
 	Simulation();
-	void update(float deltaTime);
-
-private:
+	void update();
 };

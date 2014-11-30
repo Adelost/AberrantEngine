@@ -179,6 +179,9 @@
     <ProjectReference Include="..\Engine\Engine.vcxproj">
       <Project>{e46e2ab4-a8bb-41eb-8575-2995987dc879}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\Simulation\Simulation.vcxproj">
+      <Project>{a2576c26-8926-4eab-b45b-90bb61658c84}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Utils\Utils.vcxproj">
       <Project>{e78dcaf3-ea20-4d83-be69-ffe3ef42a845}</Project>
     </ProjectReference>

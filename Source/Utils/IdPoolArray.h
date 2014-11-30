@@ -4,6 +4,7 @@
 
 namespace ae
 {
+	/** Similar to PoolArray, but elements are stored based on a id as well as index. */
 	template<class T>
 	class IdPoolArray
 	{
@@ -14,39 +15,35 @@ namespace ae
 			m_indices.clear();
 		}
 
-		int add(int id, const T& value)
+		T* add(int id, const T& value)
 		{
 			// Reuse previous index or allocate a new one
 			int index = indexFromId(id);
 			if (index = -1)
 			{
-				index = m_firstGap;
+				index = m_pool.add(value);
 
 				// Increase capacity if necessary
-				if (index == m_values.count())
+				while (m_ids.count() < m_pool.count())
 				{
-					m_values.addEmpty();
+					m_ids.addEmpty();
 					m_gaps.addEmpty();
 					m_enabled.addEmpty();
-					m_ids.addEmpty();
 				}
 			}
 
-			m_values[index] = value;
+			m_ids[index] = id;
 			m_gaps[index] = false;
 			m_enabled[index] = true;
-			m_ids[index] = id;
-			m_count++;
 
 			// Save id to be able to retrieve values later
 			while (id >= m_indices.count())
 				m_indices.add(-1);
 			m_indices[id] = index;
 
-			findNextGap();
-
-			return index;
+			return &m_pool[index];
 		}
+
 		int index(const T& value)
 		{
 			return static_cast<int>(&m_values[0] - &value);
@@ -56,44 +53,49 @@ namespace ae
 			return  idFromIndex(index(value));
 		}
 
+		T* operator[](int index)
+		{
+			return valueFromId(index);
+		}
+
 		void removeAt(int id)
 		{
 			int index = indexFromId(id);
 			if (index != -1)
 			{
 				// Remove value
-
 				m_gaps[index] = true;
 				m_enabled[index] = false;
 				m_ids[id] = -1;
 				m_count--;
 
 				// Check if new first gap is needed
-
 				if (index < m_firstGap)
 					m_firstGap = index;
 
 				// If value was next to last gap a new gap is needed
-
 				if (index == m_lastGap - 1)
-				{
 					findNextLastGap();
-				}
 			}
 		}
 
-		T* count()
+		int count()
 		{
 			return m_pool.count();
 		}
 
 		T* valueFromId(int id)
 		{
-			/*int index = indexFromId(id);
+			int index = indexFromId(id);
 			if (index != -1)
-			return &(*this)[index];*/
+				return &m_pool[index];
 
 			return nullptr;
+		}
+
+		T* valueFromIndex(int index)
+		{
+			return &m_pool[index];
 		}
 
 		/** Returns the index belonging to an id, returns "-1" if no index exists. */
@@ -110,27 +112,28 @@ namespace ae
 			return m_ids[index];
 		}
 
-	public:
-		bool isEnabled(int index) const
+	private:
+		bool _isEnabled(int index) const
 		{
 			return m_enabled[index];
 		}
 
-		Array<bool> m_enabled;
-		Array<int> m_ids;
-		Array<int> m_indices;
 		StablePoolArray<T> m_pool;
+		Array<int> m_ids;
+		Array<bool> m_enabled;
+		Array<bool> m_gaps;
+		Array<int> m_indices;
 
-#pragma region Iterator
 	public:
+		#pragma region Iterator
 		class Iterator
 		{
 		public:
-			Iterator(ComponentPool* target, int index)
+			Iterator(IdPoolArray* target, int index)
 			{
 				m_target = target;
 				m_index = index;
-				ignoreDisabled();
+				_findNextElement();
 			}
 			void reset()
 			{
@@ -140,38 +143,27 @@ namespace ae
 			{
 				return m_index < other.m_index;
 			}
-			T* operator*()
+			T* operator*() const
 			{
-				return &m_target->m_values[m_index];
+				return (*m_target).valueFromIndex(m_index);
 			}
-			const T* operator*() const
-			{
-				return &m_target->m_values[m_index];
-			}
-			int id() const
-			{
-				return m_target->idFromIndex(m_index);
-			}
-
 			const Iterator& operator++()
 			{
 				m_index++;
-				ignoreDisabled();
+				_findNextElement();
 
 				return *this;
 			}
 
 		private:
-			void ignoreDisabled()
+			void _findNextElement()
 			{
-				while (m_index < m_target->m_lastGap && !m_target->isEnabled(m_index))
-				{
+				while (m_index < m_target->count() && !m_target->_isEnabled(m_index))
 					m_index++;
-				}
 			}
 
 			int m_index;
-			ComponentPool* m_target;
+			IdPoolArray* m_target;
 		};
 		Iterator begin()
 		{
@@ -179,8 +171,8 @@ namespace ae
 		}
 		Iterator end()
 		{
-			return Iterator(this, m_lastGap);
+			return Iterator(this, count());
 		}
-#pragma endregion
+		#pragma endregion
 	};
 }

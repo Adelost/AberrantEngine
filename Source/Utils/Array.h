@@ -6,15 +6,15 @@
 
 namespace ae
 {
-	/** Template class that provides a dynamic array.
-		
+	/** Dynamic array implementation.
+
 		It stores its items in adjacent memory locations and provides fast
 		index-based access. It does not allocate memory until an element is added to
 		it.
-		
+
 		Provides out of bound checking in debug. Supports C++11 iterators to make
 		iterating more convenient. Allows adding multiple elements on a single line
-		using the stream operator. */
+		using the output stream operator. */
 	template<class T> class Array
 	{
 	public:
@@ -73,6 +73,10 @@ namespace ae
 		/** Resized the container so that it contains "size" elements. New
 			elements are uninitialized. */
 		void resize(int size);
+		/** Returns the index of an element inside the container. Element must
+			already be residing inside the container. Useful in some rare
+			situations where an element do not know its index. */
+		int indexFromElement(T* element);
 
 		/** Returns the first item. */
 		T& first();
@@ -102,8 +106,8 @@ namespace ae
 		int m_count;
 		int m_capacity;
 
-		#pragma region Iterator
 	public:
+		#pragma region Iterator
 		class Iterator
 		{
 		public:
@@ -129,10 +133,6 @@ namespace ae
 			T& operator*() const
 			{
 				return (*m_host)[m_index];
-			}
-			T* operator->() const
-			{
-				return &(*m_host)[m_index];
 			}
 
 		private:
@@ -298,8 +298,7 @@ namespace ae
 	template<class T>
 	T& Array<T>::operator[](int index)
 	{
-		return Cast::removeConst(Cast::makeConst(*this)[index]);
-		//return CALL_CONST_METHOD_AS_NON_CONST([index]);
+		return CALL_CONST_METHOD_AS_NON_CONST(operator[](index));
 	}
 
 	template<class T>
@@ -337,7 +336,7 @@ namespace ae
 	template<class T>
 	T* Array<T>::raw()
 	{
-		return Cast::removeConst(Cast::makeConst(*this).raw());
+		return CALL_CONST_METHOD_AS_NON_CONST(raw());
 	}
 
 	template<class T>
@@ -404,11 +403,24 @@ namespace ae
 	template<class T>
 	void Array<T>::resize(int size)
 	{
-		reserve(size);
+		if (size > m_count)
+		{
+			reserve(size);
 
-		for (int i = m_count; i < m_count; i++)
-			Memory::place(T(), m_elements[i]);
-		m_count = size;
+			for (int i = m_count; i < m_count; i++)
+				Memory::place(T(), m_elements[i]);
+
+			m_count = size;
+		}
+	}
+
+	template<class T>
+	int indexFromElement(T* element)
+	{
+		int index = static_cast<int>(&m_values[0] - &value);
+		xassert_msg(isInside(index), "Element do not reside inside container.");
+
+		return index;
 	}
 
 	template<class T>

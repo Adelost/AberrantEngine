@@ -6,31 +6,19 @@
 
 #include <Simulation/Simulation.h>
 #include <Utils/StopWatch.h>
-#include <Utils/Util.h>
+#include <Components/Time.h>
+#include <Utils/Time.h>
+#include <Utils/Math.h>
 
-
-namespace
-{
-	int round(float a)
-	{
-		return a + 0.5;
-	}
-	float secondsToMs(float secs)
-	{
-		return secs * 1000;
-	}
-}
+using namespace ae;
 
 MainWindow::MainWindow()
 {
-	testNetwork();
-
 	// Init members
 	m_renderWidget = new RenderWidget(this);
 	setCentralWidget(m_renderWidget);
 	m_renderWidget->setMinimumSize(20, 20);
 	m_loopTimer = new QTimer(this);
-	m_simulation = shared_ptr<Simulation>(new Simulation);
 
 	// Init window
 	setDockOptions(AllowNestedDocks | AllowTabbedDocks);
@@ -39,49 +27,45 @@ MainWindow::MainWindow()
 	setTitle("Aberrant Engine");
 	resize(500, 200);
 
+	// Init game
+	sys::Time.setFpsCap(60);
+	m_simulation = shared_ptr<Simulation>(new Simulation);
+
 	// Start update loop
-	setFpsCap(120);
 	connect(m_loopTimer, SIGNAL(timeout()), this, SLOT(update()));
 	m_loopTimer->start();
 }
 
 void MainWindow::update()
 {
-	// Calculate delta time
-	static StopWatch timer;
-	float deltaTime = timer.time();
-	timer.start();
-
-	// Show fps and ms of latest frame in title
-	displayFrameTime(deltaTime);
-
-	// Update simulation
-	m_simulation->update(deltaTime);
-
-	// Cap frame rate
-	capFps(timer.time());
+	m_simulation->update();
+	Time::sleep(13);
+	displayFrameTime();
+	adaptToFpsCap();
 }
 
-void MainWindow::displayFrameTime(float deltaTime)
+void MainWindow::displayFrameTime()
 {
+	float delta = sys::Time.delta();
+
 	static float timeSinceAvg = 0.0f;
 	static float timeSinceMinMax = 0.0f;
 	static int fpsCount = 0;
 	static float minTime = Math::FLOAT_MAX;
 	static float maxTime = 0.0f;
 
-	timeSinceAvg += deltaTime;
-	timeSinceMinMax += deltaTime;
+	timeSinceAvg += delta;
+	timeSinceMinMax += delta;
 	fpsCount++;
-	if (deltaTime < minTime)
-		minTime = deltaTime;
-	if (deltaTime > maxTime)
-		maxTime = deltaTime;
+	if (delta < minTime)
+		minTime = delta;
+	if (delta > maxTime)
+		maxTime = delta;
 
 	static float minTimeUpdate = minTime;
 	static float maxTimeUpdate = maxTime;
 
-	if (timeSinceMinMax > 1.5)
+	if (timeSinceMinMax > 1.0)
 	{
 		minTimeUpdate = minTime;
 		maxTimeUpdate = maxTime;
@@ -90,7 +74,7 @@ void MainWindow::displayFrameTime(float deltaTime)
 		maxTime = 0;
 		timeSinceMinMax = 0;
 	}
-	if (timeSinceAvg > 0.2)
+	if (timeSinceAvg > 0.4)
 	{
 		float fps = fpsCount / timeSinceAvg;
 		float ms = (timeSinceAvg / fpsCount) * 1000;
@@ -98,8 +82,8 @@ void MainWindow::displayFrameTime(float deltaTime)
 		QString message = QString(" | fps %1 | ms %2 (min %3, max %4)")
 		                  .arg(QString::number(fps, 'f', 1))
 		                  .arg(QString::number(ms, 'f', 1))
-		                  .arg(QString::number(secondsToMs(minTimeUpdate), 'f', 1))
-		                  .arg(QString::number(secondsToMs(maxTimeUpdate), 'f', 1));
+		                  .arg(QString::number(Math::milliseconds(minTimeUpdate), 'f', 1))
+		                  .arg(QString::number(Math::milliseconds(maxTimeUpdate), 'f', 1));
 		setTitleMessage(message);
 
 		timeSinceAvg = 0;
@@ -107,31 +91,23 @@ void MainWindow::displayFrameTime(float deltaTime)
 	}
 }
 
-void MainWindow::setFpsCap(int fps)
+void MainWindow::adaptToFpsCap()
 {
-	m_loopTimer->setInterval(1);
-	m_fpsCap = fps;
-}
+	static float delay = 0;
 
-void MainWindow::capFps(float loopDelay)
-{
-	float msCap = (1.0f / m_fpsCap) * 1000;
-	int interval = (int)(msCap);
+	float delta = Math::milliseconds(sys::Time.delta());
+	float minDelta = 1000.0f / sys::Time.fpsCap();
 
-	// Somehow intervals smaller than 1 ms is impossible with Qt, but if it wasn't
-	// this would be how to do it.
-	float decimalDelay = msCap - interval;
-	//Util::busyWait(decimalDelay);
-
-	// Compensate for simulation loop delay
-	interval -= Math::round(secondsToMs(loopDelay));
+	float correction = minDelta - delta;
+	delay += correction;
 
 	// Always apply at least 1 ms delay to allow Qt to reach its message loop.
 	// This is required to prevent freeze in newer versions of Qt (such as Qt5),
 	// if computation delay exceeds timer delay.
-	if (interval < 1)
-		interval = 1;
-	m_loopTimer->setInterval(interval);
+	if(delay < 1)
+		delay = 1;
+
+	m_loopTimer->setInterval(Math::round(delay));
 }
 
 void MainWindow::setTitle(QString title)

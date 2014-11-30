@@ -1,6 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{15500eb1-0907-44fe-8aa1-5596916deb56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc\DataTypes">
+      <UniqueIdentifier>{ca76d705-bd04-43a3-9cfb-8d195ee99964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc\Preincludes">
+      <UniqueIdentifier>{c3bc64bb-8413-4c0a-a7fb-6f311625eb17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc\Macros">
+      <UniqueIdentifier>{eb8e55cc-019e-4bd0-aa59-d3a14a24bd00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Misc\Assert">
+      <UniqueIdentifier>{2d47690a-ded0-4ee5-9967-1c92c1da8393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Addons">
+      <UniqueIdentifier>{84838eeb-9427-4d69-9334-ee60988b6746}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Addons\NonCopyable">
+      <UniqueIdentifier>{76064ddd-8510-468a-b8af-6450bae31d34}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Libs">
       <UniqueIdentifier>{0e576d0e-6f0e-4f7c-bc4b-b1bbed72c4a4}</UniqueIdentifier>
     </Filter>
@@ -31,55 +52,37 @@
     <Filter Include="Libs\Time">
       <UniqueIdentifier>{627c2c46-d128-4baf-9ea2-92e6c7efc78c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Objects">
-      <UniqueIdentifier>{a575870a-d9a5-41e9-88f8-77e720ac2d2b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Objects\Containers">
-      <UniqueIdentifier>{b4f81fae-eb0d-4bca-960c-3dd55d1cc9da}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Objects\Containers\PoolArrays">
-      <UniqueIdentifier>{93741985-fa25-4761-869f-7cb2d531374d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Objects\Containers\Arrays">
-      <UniqueIdentifier>{64f76abe-e1bc-4fd0-8d73-e12b71578937}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Objects\Containers\PoolList">
-      <UniqueIdentifier>{e25a4b11-93d4-402e-813f-c1ce302e2563}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Objects\Containers\Queue">
-      <UniqueIdentifier>{c58072d8-ab64-4a2f-bb5f-48132850a82f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Objects\StopWatch">
-      <UniqueIdentifier>{d84c20e7-2a1d-44e8-98ef-3cc17c47c6b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Objects\FileOpener">
-      <UniqueIdentifier>{affdc75c-d6d0-455a-9828-d546e40f2888}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Misc">
-      <UniqueIdentifier>{15500eb1-0907-44fe-8aa1-5596916deb56}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Misc\DataTypes">
-      <UniqueIdentifier>{ca76d705-bd04-43a3-9cfb-8d195ee99964}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Misc\Preincludes">
-      <UniqueIdentifier>{c3bc64bb-8413-4c0a-a7fb-6f311625eb17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Misc\Macros">
-      <UniqueIdentifier>{eb8e55cc-019e-4bd0-aa59-d3a14a24bd00}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Misc\Assert">
-      <UniqueIdentifier>{2d47690a-ded0-4ee5-9967-1c92c1da8393}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Addons">
-      <UniqueIdentifier>{84838eeb-9427-4d69-9334-ee60988b6746}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Addons\Introspect">
+    <Filter Include="Addons\Introspection">
       <UniqueIdentifier>{7154127c-a0a8-475a-ae59-e1621f55cb64}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Addons\NonCopyable">
-      <UniqueIdentifier>{76064ddd-8510-468a-b8af-6450bae31d34}</UniqueIdentifier>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{a575870a-d9a5-41e9-88f8-77e720ac2d2b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Objects\Allocators">
+    <Filter Include="Tools\Containers">
+      <UniqueIdentifier>{b4f81fae-eb0d-4bca-960c-3dd55d1cc9da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Containers\PoolArrays">
+      <UniqueIdentifier>{93741985-fa25-4761-869f-7cb2d531374d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Containers\PoolArrays\Deprecated">
+      <UniqueIdentifier>{ad2d3dde-c965-4fd2-a0c4-8f144a800829}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Containers\Arrays">
+      <UniqueIdentifier>{64f76abe-e1bc-4fd0-8d73-e12b71578937}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Containers\PoolList">
+      <UniqueIdentifier>{e25a4b11-93d4-402e-813f-c1ce302e2563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Containers\Queue">
+      <UniqueIdentifier>{c58072d8-ab64-4a2f-bb5f-48132850a82f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\StopWatch">
+      <UniqueIdentifier>{d84c20e7-2a1d-44e8-98ef-3cc17c47c6b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\FileOpener">
+      <UniqueIdentifier>{affdc75c-d6d0-455a-9828-d546e40f2888}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Allocators">
       <UniqueIdentifier>{e4b09e10-73f0-4736-a763-ad0ad4e74944}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -88,25 +91,22 @@
       <Filter>Misc\Assert</Filter>
     </ClCompile>
     <ClCompile Include="ClassInfo.cpp">
-      <Filter>Addons\Introspect</Filter>
+      <Filter>Addons\Introspection</Filter>
     </ClCompile>
     <ClCompile Include="Member.cpp">
-      <Filter>Addons\Introspect</Filter>
+      <Filter>Addons\Introspection</Filter>
     </ClCompile>
     <ClCompile Include="StringConvert.cpp">
       <Filter>Libs\Converters</Filter>
     </ClCompile>
     <ClCompile Include="StopWatch.cpp">
-      <Filter>Objects\StopWatch</Filter>
+      <Filter>Tools\StopWatch</Filter>
     </ClCompile>
     <ClCompile Include="Math.cpp">
       <Filter>Libs\Math</Filter>
     </ClCompile>
-    <ClCompile Include="Math3D.cpp">
-      <Filter>Libs\Math</Filter>
-    </ClCompile>
     <ClCompile Include="FileOpener.cpp">
-      <Filter>Objects\FileOpener</Filter>
+      <Filter>Tools\FileOpener</Filter>
     </ClCompile>
     <ClCompile Include="Memory.cpp">
       <Filter>Libs\Memory</Filter>
@@ -132,13 +132,10 @@
       <Filter>Misc\Assert</Filter>
     </ClInclude>
     <ClInclude Include="Member.h">
-      <Filter>Addons\Introspect</Filter>
+      <Filter>Addons\Introspection</Filter>
     </ClInclude>
     <ClInclude Include="ClassInfo.h">
-      <Filter>Addons\Introspect</Filter>
-    </ClInclude>
-    <ClInclude Include="Introspect.h">
-      <Filter>Addons\Introspect</Filter>
+      <Filter>Addons\Introspection</Filter>
     </ClInclude>
     <ClInclude Include="StringConvert.h">
       <Filter>Libs\Converters</Filter>
@@ -153,16 +150,13 @@
       <Filter>Misc\Macros</Filter>
     </ClInclude>
     <ClInclude Include="StopWatch.h">
-      <Filter>Objects\StopWatch</Filter>
-    </ClInclude>
-    <ClInclude Include="Math3D.h">
-      <Filter>Libs\Math</Filter>
+      <Filter>Tools\StopWatch</Filter>
     </ClInclude>
     <ClInclude Include="Math.h">
       <Filter>Libs\Math</Filter>
     </ClInclude>
     <ClInclude Include="FileOpener.h">
-      <Filter>Objects\FileOpener</Filter>
+      <Filter>Tools\FileOpener</Filter>
     </ClInclude>
     <ClInclude Include="Preforwards.h">
       <Filter>Misc\Preincludes</Filter>
@@ -177,25 +171,22 @@
       <Filter>Libs\Console</Filter>
     </ClInclude>
     <ClInclude Include="PoolArrayBase.h">
-      <Filter>Objects\Containers\PoolArrays</Filter>
+      <Filter>Tools\Containers\PoolArrays</Filter>
     </ClInclude>
     <ClInclude Include="PoolArray.h">
-      <Filter>Objects\Containers\PoolArrays</Filter>
-    </ClInclude>
-    <ClInclude Include="NativePoolArray.h">
-      <Filter>Objects\Containers\PoolArrays</Filter>
+      <Filter>Tools\Containers\PoolArrays</Filter>
     </ClInclude>
     <ClInclude Include="StablePoolArray.h">
-      <Filter>Objects\Containers\PoolArrays</Filter>
+      <Filter>Tools\Containers\PoolArrays</Filter>
     </ClInclude>
     <ClInclude Include="NonCopyable.h">
       <Filter>Addons\NonCopyable</Filter>
     </ClInclude>
     <ClInclude Include="PoolAlloc.h">
-      <Filter>Objects\Allocators</Filter>
+      <Filter>Tools\Allocators</Filter>
     </ClInclude>
     <ClInclude Include="IdPoolArray.h">
-      <Filter>Objects\Containers\PoolArrays</Filter>
+      <Filter>Tools\Containers\PoolArrays</Filter>
     </ClInclude>
     <ClInclude Include="Algorithm.h">
       <Filter>Libs\Algorithm</Filter>
@@ -210,16 +201,16 @@
       <Filter>Misc\DataTypes</Filter>
     </ClInclude>
     <ClInclude Include="Array.h">
-      <Filter>Objects\Containers\Arrays</Filter>
+      <Filter>Tools\Containers\Arrays</Filter>
     </ClInclude>
     <ClInclude Include="PoolList.h">
-      <Filter>Objects\Containers\PoolList</Filter>
+      <Filter>Tools\Containers\PoolList</Filter>
     </ClInclude>
     <ClInclude Include="Queue.h">
-      <Filter>Objects\Containers\Queue</Filter>
+      <Filter>Tools\Containers\Queue</Filter>
     </ClInclude>
     <ClInclude Include="StableArray.h">
-      <Filter>Objects\Containers\Arrays</Filter>
+      <Filter>Tools\Containers\Arrays</Filter>
     </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>Libs\Time</Filter>
@@ -229,6 +220,15 @@
     </ClInclude>
     <ClInclude Include="Cast.h">
       <Filter>Libs\Constant</Filter>
+    </ClInclude>
+    <ClInclude Include="Output.h">
+      <Filter>Libs\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="NativePoolArray.h">
+      <Filter>Tools\Containers\PoolArrays\Deprecated</Filter>
+    </ClInclude>
+    <ClInclude Include="Inspectable.h">
+      <Filter>Addons\Introspection</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

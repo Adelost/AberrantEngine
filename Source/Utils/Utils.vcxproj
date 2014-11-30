@@ -166,7 +166,6 @@
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="FileOpener.cpp" />
     <ClCompile Include="Math.cpp" />
-    <ClCompile Include="Math3D.cpp" />
     <ClCompile Include="Member.cpp" />
     <ClCompile Include="Memory.cpp" />
     <ClCompile Include="Random.cpp" />
@@ -200,9 +199,8 @@
     <ClInclude Include="Memory.h" />
     <ClInclude Include="PoolArrayBase.h" />
     <ClInclude Include="Preforwards.h" />
-    <ClInclude Include="Introspect.h" />
+    <ClInclude Include="Inspectable.h" />
     <ClInclude Include="Math.h" />
-    <ClInclude Include="Math3D.h" />
     <ClInclude Include="Member.h" />
     <ClInclude Include="NativePoolArray.h" />
     <ClInclude Include="PoolList.h" />

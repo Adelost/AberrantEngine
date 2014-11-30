@@ -2,11 +2,11 @@
 
 namespace ae
 {
-	/** Utility class to make various things easier. */
+	/** Utility class for managing time. */
 	class Time
 	{
 	public:
-		/** Put current thread to sleep. */
+		/** Puts current thread to sleep for specified amount of milliseconds. */
 		static void sleep(int ms);
 		/** Delay thread with computation, allows higher precision than sleep(). */
 		static void busyWait(float ms);

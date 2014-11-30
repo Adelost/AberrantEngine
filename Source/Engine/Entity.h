@@ -1,52 +1,44 @@
 #pragma once
 
-#include "ComponentManager.h"
+#include <Utils/StablePoolArray.h>
 
-class EntityManager;
-
-/** Standard representation of a game entity / game object. */
-class Entity
+namespace ae
 {
-public:
-	Entity();
-	Entity(int id, int uniqueId);
-	
-	/** Add component. */
- 	template<class T> 
-	void addComponent(const T& component);
-	/** Remove component. */
-	template<class T> 
-	void removeComponent();
-	void remove() {}
-	void clone() {}
+	/** Standard representation of a game entity. */
+	class Entity
+	{
+	public:
+		/** Add component. */
+		template<class T>
+		void addComponent(const T& component)
+		{
+		}
 
-	/** Get component. */
-	template<class T> T* component();
-	int id();
+		/** Remove component. */
+		template<class T>
+		void removeComponent()
+		{
+		}
 
-	static void staticInit();
-	static Entity* create();
+		/** Get component. */
+		template<class T> T* component();
+		int id();
 
-public:
-	int m_id;
+		static Entity* Create()
+		{
+			int index = m_pool.add(Entity());
+			Entity* e = &m_pool[index];
+			e->m_id = index;
 
-	static ComponentManager* s_components;
-};
+			return e;
+		}
 
-template<class T>
-T* Entity::component()
-{
-	return s_components->get<T>(m_id);
-}
+	private:
+		Entity()
+		{
+		}
 
-template<class T>
-void Entity::addComponent(const T& component)
-{
-	s_components->add<T>(m_id, component);
-}
-
-template<class T>
-void Entity::removeComponent()
-{
-	s_components->remove<T>(m_id);
+		int m_id;
+		static ae::StablePoolArray<Entity> m_pool;
+	};
 }

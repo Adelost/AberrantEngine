@@ -2,7 +2,9 @@
 
 #include <ostream>
 
-/** Allows outputting various classes using standard ostream. */
+/*
+	A Allow outputting various classes using standard ostream.
+*/
 
 #include <vector>
 /** Prints all elements of a std::vector. */

@@ -1,10 +1,11 @@
 #include "Simulation.h"
 
-#include <Engine/Engine.h>
-//#include <Components/AllComponents.h>
-//#include <Components/Input.h>
-#include <Utils/Array.h>
-#include <vector>
+//#include <Engine/Engine.h>
+#include <Components/Test.h>
+#include <Utils/Console.h>
+#include <Components/Input.h>
+//#include <Utils/Array.h>
+//#include <vector>
 
 Simulation::Simulation()
 {
@@ -26,11 +27,40 @@ Simulation::Simulation()
 
 	Component::Input input;
 	input.button("Forward");*/
+
+	//sys::TimeSystem::Time.start();
 }
 
-
-void Simulation::update(float deltaTime)
+void Simulation::update()
 {
+	// Calculate delta time
+	sys::Time.update();
+
+	//sys::Time.delta();
+	//sys::Time.delta();
+	//sys::Time.delta();
+
+	Array<int> foo;
+
+
+	
+	//System::GL.draw();
+	//System::GUI.
+	//System::Input.setButton();
+	//Component::Input input;
+
+	//Component::Input;
+	//System::Input.delta();
+
+
+	//ecs::_Time.tick();
+	//ecs::Time time;
+
+
+
+	//Component::Alpha a(1);
+
+
 	////System::input
 
 	//for (auto cApple : Component::Apple::iterator)

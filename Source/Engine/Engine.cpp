@@ -2,5 +2,4 @@
 
 #include "EntityManager.h"
 
-EntityManager Engine::entities;
-ComponentManager Engine::components;
+//EntityManager Engine::entities;

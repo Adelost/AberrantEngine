@@ -7,9 +7,7 @@
 
 namespace ae
 {
-	/** Utility class to make writing console applications more convenient. It
-		also facilitates printing common container classes directly to the
-		console. */
+	/** Makes writing console applications more convenient. */
 	class Console
 	{
 	public:
@@ -83,7 +81,7 @@ namespace ae
 			between 0-15. Only supports Windows currently. */
 		static void setBackground(int color);
 		/** Restores any change in console color to default. */
-		static void setDefaultColors();
+		static void restoreDefaultColors();
 	};
 
 	template<class T>

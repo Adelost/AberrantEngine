@@ -2,9 +2,11 @@
 
 #include "Entity.h"
 
-
-
-int AbstractComponent::idFromEntity(Entity* e)
+namespace ae
 {
-	return e->id();
+	int AbstractComponent::idFromEntity(Entity* e)
+	{
+		return e->id();
+	}
+
 }
