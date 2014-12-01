@@ -15,9 +15,9 @@ class Example : Inspectable
 public:
 	INSPECTABLE
 	("Example",
-	 MEMBER(Member::Int, someInt)
-	 MEMBER(Member::Bool, someBool)
-	 MEMBER(Member::Float, someFloat)
+	 MEMBER_AUTONAMED(Member::Int, someInt)
+	 MEMBER_AUTONAMED(Member::Bool, someBool)
+	 MEMBER_AUTONAMED(Member::Float, someFloat)
 	)
 
 	Example()
@@ -52,7 +52,7 @@ void testIntrospection()
 	std::cout << "Name: " << foo.inspect().name() << "\n";
 	std::cout << "Members: ";
 	for (auto m : foo.inspect())
-		std::cout << m.valueAsString() << " ";
+		std::cout << m->valueAsString() << " ";
 	std::cout << "\n";
 }
 

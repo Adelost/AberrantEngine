@@ -59,28 +59,28 @@
     <_ProjectFileVersion>11.0.51106.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
-    <IncludePath>../;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)../Binaries/$(Platform)/$(Configuration)/</OutDir>
+    <IntDir>$(SolutionDir)../Temp/$(Platform)/$(Configuration)/$(ProjectName)/</IntDir>
+    <IncludePath>../;../../Libs/ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)../Binaries/$(Platform)/$(Configuration)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
-    <IncludePath>../;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)../Binaries/$(Platform)/$(Configuration)/</OutDir>
+    <IntDir>$(SolutionDir)../Temp/$(Platform)/$(Configuration)/$(ProjectName)/</IntDir>
+    <IncludePath>../;../../Libs/ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)../Binaries/$(Platform)/$(Configuration)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
-    <IncludePath>../;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)../Binaries/$(Platform)/$(Configuration)/</OutDir>
+    <IntDir>$(SolutionDir)../Temp/$(Platform)/$(Configuration)/$(ProjectName)/</IntDir>
+    <IncludePath>../;../../Libs/ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)../Binaries/$(Platform)/$(Configuration)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/</OutDir>
-    <IntDir>$(SolutionDir)../Temp/$(Configuration)/$(Platform)/$(ProjectName)/</IntDir>
-    <IncludePath>../;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)../Binaries/$(Configuration)/$(Platform)/;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)../Binaries/$(Platform)/$(Configuration)/</OutDir>
+    <IntDir>$(SolutionDir)../Temp/$(Platform)/$(Configuration)/$(ProjectName)/</IntDir>
+    <IncludePath>../;../../Libs/ThirdParty;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)../Binaries/$(Platform)/$(Configuration)/;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
