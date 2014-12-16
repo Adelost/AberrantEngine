@@ -225,3 +225,93 @@ TEST_CASE("introspection")
 	REQUIRE(values == "42 true 3.14 ");
 }
 
+TEST_CASE("messages")
+{
+}
+
+#include <Utils/Algorithm.h>
+
+TEST_CASE("Algorithm")
+{
+	SECTION("maximum")
+	{
+		REQUIRE(Algorithm::maximum(1) == 1);
+		REQUIRE(Algorithm::maximum(1, 2) == 2);
+		REQUIRE(Algorithm::maximum(2, 1) == 2);
+		REQUIRE(Algorithm::maximum(1, 2, 3) == 3);
+		REQUIRE(Algorithm::maximum(2, 3, 1) == 3);
+		REQUIRE(Algorithm::maximum(3, 1, 2) == 3);
+	}
+
+	SECTION("any")
+	{
+		REQUIRE(Algorithm::any(std::string("a"), "b", "c", "a"));
+		REQUIRE(Algorithm::any(std::string("a"), "b", "c", "d") == false);
+
+		REQUIRE(Algorithm::any("a", "a"));
+		REQUIRE(Algorithm::any("a", "b") == false);
+		REQUIRE(Algorithm::any("a", "b", "a", "c"));
+		REQUIRE(Algorithm::any("a", "b", "c", "a"));
+		REQUIRE(Algorithm::any("a", "b", "c", "d") == false);
+
+		REQUIRE(Algorithm::any(2, 1, 2, 3));
+		REQUIRE(Algorithm::any(2, 1, 3) == false);
+	}
+}
+
+#include <Utils/StringRef.h>
+
+TEST_CASE("StringRef")
+{
+	SECTION("compare")
+	{
+		std::string s = "ab";
+
+		StringRef ab(&s);
+		StringRef a(&s, 0, 1);
+		StringRef b(&s, 1, 1);
+
+		REQUIRE(ab == s);
+		REQUIRE(a != s);
+
+		REQUIRE(ab != "a");
+		REQUIRE(ab != "abc");
+		REQUIRE(ab == "ab");
+
+		REQUIRE(a == a);
+		REQUIRE(a == "a");
+		REQUIRE("a" == a);
+
+		REQUIRE(a != b);
+		REQUIRE(a != "b");
+		REQUIRE("a" != b);
+
+		REQUIRE(a < b);
+		REQUIRE(a < "b");
+		REQUIRE("a" < b);
+
+		REQUIRE(b > a);
+		REQUIRE(b > "a");
+		REQUIRE("b" > a);
+	}
+}
+
+#include <Utils/CppParser.h>
+
+TEST_CASE("CppParser")
+{
+	CppParser parser;
+	std::string in = "abc\"/*abc*/\"/*ab\nc*/";
+	parser.parseNext(in);
+
+	//CppParser parse;
+}
+
+
+
+
+
+
+
+
+

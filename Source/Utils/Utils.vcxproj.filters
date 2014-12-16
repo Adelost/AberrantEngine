@@ -85,6 +85,18 @@
     <Filter Include="Tools\Allocators">
       <UniqueIdentifier>{e4b09e10-73f0-4736-a763-ad0ad4e74944}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tools\Message">
+      <UniqueIdentifier>{1d40ed34-80dd-4aa9-b993-d3f1412b7014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Regex">
+      <UniqueIdentifier>{2f986283-94d0-493c-90d5-c894c0be6911}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\StringRef">
+      <UniqueIdentifier>{bc6bba3c-ffea-4428-8d05-d278efebef9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools\Parser">
+      <UniqueIdentifier>{bda4dbc4-f031-49c7-83d2-e259b1a74b2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XAssert.cpp">
@@ -125,6 +137,9 @@
     </ClCompile>
     <ClCompile Include="_WindowsConsole.cpp">
       <Filter>Libs\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Tools\Message</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +244,18 @@
     </ClInclude>
     <ClInclude Include="Inspectable.h">
       <Filter>Addons\Introspection</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Tools\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="RegexSearch.h">
+      <Filter>Tools\Regex</Filter>
+    </ClInclude>
+    <ClInclude Include="StringRef.h">
+      <Filter>Tools\StringRef</Filter>
+    </ClInclude>
+    <ClInclude Include="CppParser.h">
+      <Filter>Tools\Parser</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

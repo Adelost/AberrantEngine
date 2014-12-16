@@ -41,13 +41,13 @@ struct Element
 };
 
 template<class C, class E>
-void addElement(C* container, E& element)
+void startElement(C* container, E& element)
 {
 	container->add(element);
 }
 
 template<class C, class E>
-void addElement(std::vector<E>* container, E& element)
+void startElement(std::vector<E>* container, E& element)
 {
 	container->push_back(element);
 }
@@ -59,7 +59,7 @@ void add(C& container)
 	container.reserve(ELEMENT_COUNT);
 	StopWatch w;
 	for (int i = 0; i < ELEMENT_COUNT; i++)
-		addElement<C, E>(&container, E(i));
+		startElement<C, E>(&container, E(i));
 	w.pause();
 	w.printTime("Add");
 }
@@ -151,7 +151,7 @@ void profileContaner(std::string label)
 	container.reserve(ELEMENT_COUNT);
 	StopWatch w;
 	for (int i = 0; i < ELEMENT_COUNT; i++)
-		addElement<C, E>(&container, E(i));
+		startElement<C, E>(&container, E(i));
 	w.pause();
 	w.printTime("Add");
 	container.clear();

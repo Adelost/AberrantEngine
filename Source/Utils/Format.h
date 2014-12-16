@@ -6,14 +6,14 @@
 
 namespace ae
 {
-	/** Make formating strings easier.
-
+	/** Makse formating strings easier.
+	    
 		Example:
 		<pre>
 		std::string str = Format::string("%1 %2 %3 %1") % "text" % true % 42;
 		std::cout << str; // => text true 42 text
 		</pre>
-		*/
+	*/
 
 	class Format
 	{

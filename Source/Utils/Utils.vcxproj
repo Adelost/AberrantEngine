@@ -168,6 +168,7 @@
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Member.cpp" />
     <ClCompile Include="Memory.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="StopWatch.cpp" />
     <ClCompile Include="Format.cpp" />
@@ -181,7 +182,11 @@
     <ClInclude Include="Array.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Cast.h" />
+    <ClInclude Include="CppParser.h" />
+    <ClInclude Include="StringRef.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="Output.h" />
+    <ClInclude Include="RegexSearch.h" />
     <ClInclude Include="_WindowsConsole.h" />
     <ClInclude Include="IdPoolArray.h" />
     <ClInclude Include="NonCopyable.h" />

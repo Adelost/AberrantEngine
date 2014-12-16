@@ -14,14 +14,14 @@ namespace ae
 			std::string s = str;
 
 			bool found = false;
-			*minNum = Math::INT32_MAX;
+			*minNum = Math::MAX_INT;
 
 			std::smatch sm;
 			std::regex e(numberPrefix + "(\\d+)");
 
 			while (std::regex_search(s, sm, e))
 			{
-				int num = ae::StringConvert::toInt(sm[1]);
+				int num = StringConvert::toInt(sm[1]);
 
 				if (num < *minNum)
 					*minNum = num;

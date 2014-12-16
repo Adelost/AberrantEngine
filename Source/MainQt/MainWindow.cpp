@@ -39,7 +39,7 @@ MainWindow::MainWindow()
 void MainWindow::update()
 {
 	m_simulation->update();
-	Time::sleep(13);
+	//Time::sleep(13);
 	displayFrameTime();
 	adaptToFpsCap();
 }
@@ -51,7 +51,7 @@ void MainWindow::displayFrameTime()
 	static float timeSinceAvg = 0.0f;
 	static float timeSinceMinMax = 0.0f;
 	static int fpsCount = 0;
-	static float minTime = Math::FLOAT_MAX;
+	static float minTime = Math::MAX_FLOAT;
 	static float maxTime = 0.0f;
 
 	timeSinceAvg += delta;
@@ -70,7 +70,7 @@ void MainWindow::displayFrameTime()
 		minTimeUpdate = minTime;
 		maxTimeUpdate = maxTime;
 
-		minTime = Math::FLOAT_MAX;
+		minTime = Math::MAX_FLOAT;
 		maxTime = 0;
 		timeSinceMinMax = 0;
 	}

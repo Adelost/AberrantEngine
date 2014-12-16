@@ -42,25 +42,23 @@ TEST_CASE("Simulation")
 
 	SECTION("Input")
 	{
-		auto arg = sys::Input;
-
 		sys::Button.set("A", true);
 
-		REQUIRE(sys::Button.isDown("A"));
-		REQUIRE(sys::Button.down("A"));
-		REQUIRE(sys::Button.up("A") == false);
+		REQUIRE(sys::Button.isPressed("A"));
+		REQUIRE(sys::Button.pressed("A"));
+		REQUIRE(sys::Button.released("A") == false);
 		
 		sys::Button.set("A", false);
 
-		REQUIRE(sys::Button.isDown("A") == false);
-		REQUIRE(sys::Button.down("A"));
-		REQUIRE(sys::Button.up("A"));
+		REQUIRE(sys::Button.isPressed("A") == false);
+		REQUIRE(sys::Button.pressed("A"));
+		REQUIRE(sys::Button.released("A"));
 
 		sys::Button.update();
 
-		REQUIRE(sys::Button.isDown("A") == false);
-		REQUIRE(sys::Button.down("A") == false);
-		REQUIRE(sys::Button.up("A") == false);;
+		REQUIRE(sys::Button.isPressed("A") == false);
+		REQUIRE(sys::Button.pressed("A") == false);
+		REQUIRE(sys::Button.released("A") == false);;
 	}
 }
 

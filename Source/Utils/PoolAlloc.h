@@ -5,9 +5,9 @@
 
 namespace ae
 {
-	/** Allow fast allocation of objects. This is usually much
-		faster than standard allocation using "new" and "delete".
-	
+	/** Allow fast allocation of objects. This is usually much faster than
+		standard allocation using "new" and "delete".
+		
 		Objects should be instantiated with the class similarly to using a smart
 		pointer. Instantiated objects should also be deleted afterwards using
 		the "release()" method. */
