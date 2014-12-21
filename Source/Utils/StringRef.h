@@ -45,7 +45,7 @@ public:
 	{
 		return m_source->substr(m_start, m_length);
 	}
-	/** Compares this StringRef with other StringRef. 0 = "String < "*/
+	/** Compares this StringRef with other StringRef. 0 = "String < " */
 	int compare(const StringRef& other) const
 	{
 		return m_source->compare(m_start, m_length, *other.m_source, other.m_start, other.m_length);
@@ -86,9 +86,17 @@ public:
 	{
 		m_length = end - m_start;
 	}
+	int length()
+	{
+		return m_length;
+	}
 	void setLength(int length)
 	{
 		m_length = length;
+	}
+	bool isEmpty()
+	{
+		return length() == 0;
 	}
 
 private:

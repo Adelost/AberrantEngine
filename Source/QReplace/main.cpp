@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
 	QCoreApplication a(argc, argv);
 
 	RecursiveReplace r;
-	r.replace("C:/Desktop/Regex");
-	//r.replace("C:/Desktop/Source/Cpp/AberrantEngine/Source");
+	//r.replace("C:/Desktop/Regex");
+	r.replace("C:/Desktop/Source/Cpp/AberrantEngine/Source");
 
 	Console::pressToContinue();
 }

@@ -129,9 +129,9 @@ public:
 			if (info.isDir())
 			{
 				// recursive
-				if (fileName != ".." && fileName != ".")
+				if (!Algorithm::any(fileName, "..", ".", "GeneratedFiles"))
 				{
-					printFolder(info.fileName());
+					//printFolder(info.fileName());
 
 					m_depth++;
 					search(sFilePath);
@@ -140,80 +140,15 @@ public:
 			}
 			else if (Algorithm::any(info.suffix(), "h", "hpp", "cpp"))
 			{
-				printFile(fileName);
+				//printFile(fileName);
 				QFile f(info.absoluteFilePath());
 				f.open(QFile::ReadWrite | QFile::Text);
 				QTextStream in(&f);
 
 				std::string s = in.readAll().toStdString();
 
-				//QRegularExpression re(".*/\\*[\\S\\s]*?\\*/");
-
-
-				std::string re_commentStart = "\"";
-
-				RegexSearch re;
-				re.setInput(s);
-				re.setRegex(re_commentStart);
-
-				/*while(re.hasMatch())
-				{
-					re.setInput();
-				}
-
-				*/
-				//std::string out;
-				//RegexSearch re_str("\"", s);
-				//RegexSearch re_cs(".*?(?:/\\*)");
-				//RegexSearch re_ce("\\*/");
-				//while (re_str.hasMatch())
-				//{
-				//	re_cs.setInput(re_str.prefix());
-				//	while (re_cs.hasMatch())
-				//	{
-				//		std::string commentStart = re_cs.match();
-				//		while (re_cs.hasMatch())
-				//		{
-				//			std::string commentStart = re_cs.match();
-				//			re_cs.se
-				//		}
-				//		re_cs.se
-				//	}
-
-				//	re_cs.setInput(re_str.prefix());
-				//}
-
-
-
-
-
-
-				//while (re_cs.hasMatch())
-				//{
-
-
-				//}
-
-				////QRegexReplace re(".*/\\*[\\S\\s]*?\\*/", s);
-				//for (auto m : re_cs)
-				//{
-				//	QString s;
-				//	s = m.match(0);
-				//	s = m.prefix();
-				//	//s = m.suffix();
-				//	Console::print() << s.toStdString();
-				//}
-
-				///*auto it = re.globalMatch(s);
+				CppParser parse(s);
 				//Console::print() << "=======";
-				//while (it.hasNext())
-				//{
-				//	auto match = it.next();
-				//	int i = match.lastCapturedIndex();
-				//	QString word = match.captured(0);
-				//	Console::print() << word.toStdString();
-				//}*/
-				Console::print() << "=======";
 			}
 		}
 	}

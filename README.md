@@ -40,7 +40,7 @@ Overview of content.
 Things I ponder...
 * Implementing const iteratores.
 * Some way to reuse code between iteratores.
-* Better categorization.
+* Better taxonomy of classes.
 * Hard to decide if forcing people to use static methods instead of functions within namespaces is the right thing to do.
 * How to add introspection of methods (perhaps using lambda functions?).
 

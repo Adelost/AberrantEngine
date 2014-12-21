@@ -4,7 +4,6 @@
 #include <Utils/Array.h>
 
 #include <regex>
-#include <vector>
 
 namespace ae
 {
@@ -28,18 +27,69 @@ public:
 
 			bool tokenMatch = true;
 
+			char start = m_source[m_index];
+
+			// Strings
 			if (token("\""))
 			{
 				endElement();
 				startElement();
 
-				find("\"");
+				findEnd("\"");
+				endElement();
+				
+				//Console::print() << "S: " << last().toString();
+
+				startElement();
+			}
+			//// Comments
+			//else if (token("/**"))
+			//{
+			//	endElement();
+			//	startElement();
+
+			//	// findEnd("\\*/");
+			//	findEnd("\n");
+			//	m_index--;
+			//	endElement();
+			//	m_index++;
+
+			//	Console::print() << "C: " << last().toString();
+
+			//	startElement();
+			//}
+			else if (token("///"))
+			{
+				endElement();
+				startElement();
+
+				// findEnd("\\*/");
+				findEnd("\n");
+				m_index--;
+				endElement();
+				m_index++;
+
+				Console::print() << "C: " << last().toString();
+
+				startElement();
+			}
+			// Comments
+			else if (token("//"))
+			{
+				endElement();
+				startElement();
+				findEnd("\n");
+				endElement();
+				startElement();
 			}
 			else
 			{
-				m_index++;
+				if (hasNext())
+					m_index++;
 			}
+
 		}
+		endElement();
 	}
 
 	void findTokenStart()
@@ -61,6 +111,24 @@ public:
 		{
 			int pos = m.position();
 			m_index += pos;
+
+			return;
+		}
+
+		m_hasNext = false;
+	}
+
+	void findEnd(std::string regex)
+	{
+		m_index++;
+
+		std::regex re(regex);
+		std::cmatch m;
+
+		if (std::regex_search(&m_source[m_index], m, re))
+		{
+			int pos = m.position();
+			m_index += pos + m.length();
 
 			return;
 		}
@@ -103,25 +171,29 @@ public:
 
 	StringRef& last()
 	{
-		return m_elements.back();
+		return m_elements.last();
 	}
 
 private:
 	void startElement()
 	{
-		m_elements.push_back(StringRef(&m_source, m_index, 0));
+		m_elements.add(StringRef(&m_source, m_index, 0));
 	}
 
 	void endElement()
 	{
-		last().setEnd(m_index);
+		auto& e = last();
+		e.setEnd(m_index);
 
-		Console::print() << "E: " << last().toString();
+		std::string str = e.toString();
+
+		if (e.isEmpty())
+			m_elements.removeLast();
 	}
 
 	int m_index;
 	std::string m_source;
-	std::vector<StringRef> m_elements;
+	Array<StringRef> m_elements;
 	bool m_hasNext;
 };
 }

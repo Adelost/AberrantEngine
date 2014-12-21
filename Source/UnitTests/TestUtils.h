@@ -300,9 +300,8 @@ TEST_CASE("StringRef")
 
 TEST_CASE("CppParser")
 {
-	CppParser parser;
 	std::string in = "abc\"/*abc*/\"/*ab\nc*/";
-	parser.parseNext(in);
+	CppParser parser(in);
 
 	//CppParser parse;
 }

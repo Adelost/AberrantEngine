@@ -6,7 +6,7 @@
 
 namespace ae
 {
-	/** Makse formating strings easier.
+	/** Makes formating strings easier.
 	    
 		Example:
 		<pre>
