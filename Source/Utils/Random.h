@@ -12,13 +12,15 @@ public:
 	/** Specifies the "seed" randomized values will be generated from. Identical
 		seeds will generate an identical succession of numbers. */
 	static void setSeed(int seed);
-	/** Returns a randomized "int" between the values min and max. */
-	static int next(int min, int max);
-	/** Returns a randomized "int" between 0 and less than max. */
-	static int nextUniform(int max);
+	/** Returns a randomized "int" N, such that 0 <= N < max. */
+	static int next(int max);
+	/** Returns a randomized "int" N, such that min <= N < max. */
+	static int nextUniform(int min, int max);
 	/** Returns a randomized "float" between 0.0f and 1.0f. */
 	static float nextFloat();
 	/** Returns a randomized "float" between min and max. */
 	static float nextFloat(float min, float max);
+	/** Returns a randomized "bool" with equal chance of being either true or false. */
+	static bool nextBool(int max);
 };
 }

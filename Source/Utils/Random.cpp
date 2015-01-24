@@ -20,12 +20,12 @@ void Random::setSeed(int seed)
 	srand((unsigned int)seed);
 }
 
-int Random::next(int min, int max)
+int Random::nextUniform(int min, int max)
 {
 	return rand() % (max - min + 1) + min;
 }
 
-int Random::nextUniform(int max)
+int Random::next(int max)
 {
 	return rand() % max;
 }
@@ -38,8 +38,15 @@ float Random::nextFloat()
 float Random::nextFloat(float min, float max)
 {
 	float random = ((float)rand()) / (float)RAND_MAX;
-	random = random * (max - min);
+	float range  = (max - min);
+	random = random * range ;
 
 	return min + random;
 }
+
+bool Random::nextBool(int max)
+{
+	return next(1) == 0;
+}
+
 }

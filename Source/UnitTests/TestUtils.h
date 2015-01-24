@@ -6,7 +6,6 @@
 
 using namespace ae;
 
-
 #include <Utils/Array.h>
 
 TEST_CASE("Array")
@@ -51,6 +50,27 @@ TEST_CASE("Array")
 			total += *it;
 
 		REQUIRE(total == 20);
+	}
+
+	SECTION("deep copy")
+	{
+		Array<int> b = a;
+
+		a.clear();
+
+		int total;
+
+		total = 0;
+		for (int i : a)
+			total += i;
+
+		REQUIRE(total == 0);
+
+		total = 0;
+		for (int i : b)
+			total += i;
+
+		REQUIRE(total == 10);
 	}
 }
 
@@ -128,21 +148,33 @@ TEST_CASE("IdPoolArray")
 	}
 }
 
-#include <Utils/PoolAlloc.h>
+#include <Utils/PoolPtr.h>
 
-TEST_CASE("PoolAlloc")
+TEST_CASE("PoolPtr")
 {
-	Array<PoolAlloc<int>> a;
-	a << 0 << 1 << 2 << 3 << 4;
+	SECTION("single object allocation")
+	{
+		PoolPtr<int> p = 42;
 
-	int total = 0;
-	for (PoolAlloc<int> i : a)
-		total += *i;
+		REQUIRE(*p == 42);
 
-	REQUIRE(total == 10);
+		p.release();
+	}
 
-	for (PoolAlloc<int> i : a)
-		i.release();
+	SECTION("array allocation")
+	{
+		Array<PoolPtr<int>> a;
+		a << 0 << 1 << 2 << 3 << 4;
+
+		int total = 0;
+		for (PoolPtr<int> i : a)
+			total += *i;
+
+		REQUIRE(total == 10);
+
+		for (PoolPtr<int> i : a)
+			i.release();
+	}
 }
 
 #include <Utils/Format.h>
@@ -296,15 +328,80 @@ TEST_CASE("StringRef")
 	}
 }
 
-#include <Utils/CppParser.h>
+//#include <Utils/CppParser.h>
+//
+//TEST_CASE("CppParser")
+//{
+//	std::string in = "abc\"/*abc*/\"/*ab\nc*/";
+//	CppParser parser(in);
+//
+//	//CppParser parse;
+//}
+
+
+#include <Utils/PoolAllocator.h>
 
 TEST_CASE("CppParser")
 {
-	std::string in = "abc\"/*abc*/\"/*ab\nc*/";
-	CppParser parser(in);
+	//PoolAllocator<int> p;
 
+	//p.add(1);
+	//p.
 	//CppParser parse;
 }
+
+template <class T>
+class PoolObject
+{
+public:
+	PoolObject()
+	{
+	}
+
+	void* operator new(size_t size)
+	{
+		//m_storage = T();
+
+		//return &(*s_storage);
+		return nullptr;
+	}
+	void operator delete(void* p)
+	{
+	}
+	void* operator new[](size_t size)
+	{
+	}
+	void operator delete[](void* p)
+	{
+	}
+
+private:
+	//static PoolPtr<PoolObject> s_storage;
+};
+
+//template <class T>
+//PoolPtr<T> PoolObject::s_storage;
+
+class Allan : public PoolObject<Allan>
+{
+public:
+	Allan()
+	{
+		i = 0;
+	}
+
+private:
+	int i;
+	int y;
+};
+
+TEST_CASE("Alloc")
+{
+	Allan* a = new Allan();
+	Console::print() << "Hello";
+}
+
+
 
 
 

@@ -14,7 +14,8 @@ namespace ae
 	Provides out of bound checking in debug. Supports C++11 iterators to make
 	iterating more convenient. Allows adding multiple elements on a single line
 	using the output stream operator. */
-template<class T> class Array
+template<class T> 
+class Array
 {
 public:
 	/** Constructs an empty container. */
@@ -41,8 +42,6 @@ public:
 	void add(const T& element);
 	/** Adds multiple element to the container from a pointer to an array. */
 	void add(const T* elements, int count);
-	/** Adds uninitialized elements to the container (see also resize()). */
-	void addEmpty(int size = 1);
 	/** Inserts an element at specified index. Subsequent elements are
 		transposed to cover the resulting gap, which may be a slow operation
 		depending of the number of elements. */
@@ -59,6 +58,8 @@ public:
 	/** Fast removal of element by swapping the last element with the
 		element deleted. */
 	void swapRemove(int index);
+	/** Adds a uninitialized elements. */
+	void allocate(int size = 1);
 	/** Removes all elements (which are destroyed) from container. */
 	void clear();
 	/** Same as clear() but also releases any allocated memory. */
@@ -179,7 +180,7 @@ Array<T>::~Array()
 }
 
 template<class T>
-void Array<T>::addEmpty(int count)
+void Array<T>::allocate(int count)
 {
 	resize(m_count + count);
 }

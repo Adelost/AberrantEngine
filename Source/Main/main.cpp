@@ -8,7 +8,7 @@
 #include <Utils/Memory.h>
 #include <Utils/NativePoolArray.h>
 #include <Utils/Array.h>
-#include <Utils/PoolAlloc.h>
+#include <Utils/PoolPtr.h>
 #include <Utils/PoolArray.h>
 #include <Utils/StablePoolArray.h>
 #include <Utils/StopWatch.h>
@@ -80,11 +80,11 @@ void iterate(C& container)
 }
 
 template<class C, class E>
-void iterate(Array<PoolAlloc<E>>& container)
+void iterate(Array<PoolPtr<E>>& container)
 {
 	int checksum = 0;
 	StopWatch w;
-	for (PoolAlloc<E> e : container)
+	for (PoolPtr<E> e : container)
 		checksum += e->data;
 	w.pause();
 	std::cout << "Iter:\t" << w.timeMs() << " ms\tchecksum: " << checksum << "\n";

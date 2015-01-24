@@ -97,6 +97,9 @@
     <Filter Include="Tools\Parser">
       <UniqueIdentifier>{bda4dbc4-f031-49c7-83d2-e259b1a74b2d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tools\Containers\Stack">
+      <UniqueIdentifier>{4575e808-c217-4f75-9718-f9dec1de0617}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XAssert.cpp">
@@ -197,9 +200,6 @@
     <ClInclude Include="NonCopyable.h">
       <Filter>Addons\NonCopyable</Filter>
     </ClInclude>
-    <ClInclude Include="PoolAlloc.h">
-      <Filter>Tools\Allocators</Filter>
-    </ClInclude>
     <ClInclude Include="IdPoolArray.h">
       <Filter>Tools\Containers\PoolArrays</Filter>
     </ClInclude>
@@ -256,6 +256,18 @@
     </ClInclude>
     <ClInclude Include="CppParser.h">
       <Filter>Tools\Parser</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolPtr.h">
+      <Filter>Tools\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayAllocator.h">
+      <Filter>Tools\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolAllocator.h">
+      <Filter>Tools\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Tools\Containers\Stack</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

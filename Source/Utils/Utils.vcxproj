@@ -180,9 +180,12 @@
   <ItemGroup>
     <ClInclude Include="Algorithm.h" />
     <ClInclude Include="Array.h" />
+    <ClInclude Include="ArrayAllocator.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Cast.h" />
     <ClInclude Include="CppParser.h" />
+    <ClInclude Include="Stack.h" />
+    <ClInclude Include="PoolAllocator.h" />
     <ClInclude Include="StringRef.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="Output.h" />
@@ -190,7 +193,7 @@
     <ClInclude Include="_WindowsConsole.h" />
     <ClInclude Include="IdPoolArray.h" />
     <ClInclude Include="NonCopyable.h" />
-    <ClInclude Include="PoolAlloc.h" />
+    <ClInclude Include="PoolPtr.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="StablePoolArray.h" />
     <ClInclude Include="PoolArray.h" />

@@ -43,7 +43,7 @@ void Algorithm::shuffle(T* elements, int count)
 {
 	for (int i = 0; i < count; i++)
 	{
-		int rand = Random::nextUniform(count);
+		int rand = Random::next(count);
 		std::swap(elements[i], elements[rand]);
 	}
 }

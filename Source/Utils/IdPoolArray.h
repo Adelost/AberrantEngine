@@ -26,9 +26,9 @@ namespace ae
 				// Increase capacity if necessary
 				while (m_ids.count() < m_pool.count())
 				{
-					m_ids.addEmpty();
-					m_gaps.addEmpty();
-					m_enabled.addEmpty();
+					m_ids.allocate();
+					m_gaps.allocate();
+					m_enabled.allocate();
 				}
 			}
 

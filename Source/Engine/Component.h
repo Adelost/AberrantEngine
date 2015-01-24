@@ -13,8 +13,7 @@ namespace ae
 	class Component : public AbstractComponent
 	{
 	public:
-		Component(int id) : AbstractComponent(id)
-		{}
+		Component(int id) : AbstractComponent(id) {}
 
 		static T* Create(Entity* entity)
 		{

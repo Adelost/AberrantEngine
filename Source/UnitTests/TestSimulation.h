@@ -4,7 +4,6 @@
 
 using namespace ae;
 
-
 #include <Engine/Entity.h>
 #include <Components/Test.h>
 
@@ -62,9 +61,9 @@ TEST_CASE("Simulation")
 	}
 }
 
-TEST_CASE("Systems")
-{
-}
+//TEST_CASE("Systems")
+//{
+//}
 
 TEST_CASE("Entity Hierarchy")
 {

@@ -1,8 +1,9 @@
 #pragma once
 
 #include "XAssert.h"
-#include "Array.h"
 #include <iostream>
+
+#include "Array.h"
 
 namespace ae
 {
@@ -63,6 +64,7 @@ namespace ae
 			std::cout << "\n";
 		}
 
+		/** Removes an element from the container based on its index. */
 		void remove(int index)
 		{
 			//xassert_msg(!isGap(index), "Element is already removed. ");

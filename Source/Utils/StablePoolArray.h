@@ -5,11 +5,9 @@
 
 namespace ae
 {
-	template<class T>
-	class StablePoolArray : public PoolArrayBase < T, StableArray<T> >
-	{
-	public:
-		StablePoolArray() {}
-		StablePoolArray(int capacity) : PoolArrayBase(capacity) {}
-	};
+/** A pool array in which allocated elements can be safely referenced.
+	Similarly to a StaableArray, elements do not change memory address
+	when growing. */
+template <class T>
+using StablePoolArray = PoolArrayBase<T, StableArray<T>>;
 }

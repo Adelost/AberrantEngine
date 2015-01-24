@@ -6,15 +6,17 @@
 
 namespace ae
 {
-	/** Container structure that provides pool-based allocation of elements. It is
-		useful when fast allocation and deallocation of elements is needed. Adding
-		and removing elements is O(1) average and O(n) worst case.
-
-		It works by the same principle as a pool allocator. Same size elements are
-		allocated in a preallocated memory block. The structure is traversed
-		linearly, as an array, as compared to a more common linked list approach. An
-		iterator is needed to traverse the values stored inside, as the array may
-		contain gaps. */
+	/** Container structure that provides pool-based allocation of
+		elements. It is useful when fast allocation and deallocation
+		of elements is needed. Adding and removing elements is O(1)
+		average and O(n) worst case.
+		
+		It works by the same principle as a pool allocator. Same size
+		elements are allocated in a preallocated memory block. The
+		structure is traversed linearly, as an array, as compared to a
+		more common linked list approach. An iterator is needed to
+		traverse the values stored inside, as the array may contain
+		gaps. */
 	template<class T>
 	class NativePoolArray
 	{
@@ -30,8 +32,8 @@ namespace ae
 			m_lastGap = 0;
 		}
 
-		/** Adds a value to the container and returns the index where it was
-			stored. */
+		/** Adds a value to the container and returns the index where
+			it was stored. */
 		int add(const T& value)
 		{
 			// Add element, reuse gaps if any
@@ -67,13 +69,11 @@ namespace ae
 				m_gaps[index] = true;
 				m_count--;
 
-				// Check if new first gap is
-				// needed
+				// Check if new first gap is needed
 				if (index < m_firstGap)
 					m_firstGap = index;
 
-				// If value was next to last gap
-				// a new gap is needed
+				// If value was next to last gap a new gap is needed
 				if (index == m_lastGap - 1)
 				{
 					findNextLastGap();
@@ -86,15 +86,16 @@ namespace ae
 			return m_firstGap;
 		}
 
-		/** Returns element at index, do not use to iterate as the array may
-			contain uninitialized elements; use the iterator instead. */
+		/** Returns element at index, do not use to iterate as the
+			array may contain uninitialized elements use the iterator
+			instead. */
 		T& operator[](int index)
 		{
 			return m_values[index];
 		}
 
-		/** Returns the number of elements the container can hold before needing
-			to allocate more memory. */
+		/** Returns the number of elements the container can hold
+			before needing to allocate more memory. */
 		int capacity()
 		{
 			return m_values.count();
@@ -108,7 +109,8 @@ namespace ae
 
 		void findNextGap()
 		{
-			// Step forward until new gap is found or until end is reached.
+			// Step forward until new gap is found or until end is
+			// reached.
 			m_firstGap++;
 			while (m_firstGap < m_lastGap && !isGap(m_firstGap))
 			{
