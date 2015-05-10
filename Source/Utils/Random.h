@@ -2,25 +2,25 @@
 
 namespace ae
 {
-/**	Randomization utility class. */
+///	Randomization utility class.
 class Random
 {
 public:
-	/** Sets an arbitrary random seed which will be used to generate
-		randomized values. */
+	/// Sets an arbitrary random seed which will be used to generate
+	///	randomized values.
 	static void initSeed();
-	/** Specifies the "seed" randomized values will be generated from. Identical
-		seeds will generate an identical succession of numbers. */
+	/// Specifies the "seed" randomized values will be generated from. Identical
+	///	seeds will generate an identical succession of numbers.
 	static void setSeed(int seed);
-	/** Returns a randomized "int" N, such that 0 <= N < max. */
+	/// Returns a randomized "int" N, such that 0 <= N < max.
 	static int next(int max);
-	/** Returns a randomized "int" N, such that min <= N < max. */
+	/// Returns a randomized "int" N, such that min <= N < max.
 	static int nextUniform(int min, int max);
-	/** Returns a randomized "float" between 0.0f and 1.0f. */
+	/// Returns a randomized "float" between 0.0f and 1.0f.
 	static float nextFloat();
-	/** Returns a randomized "float" between min and max. */
+	/// Returns a randomized "float" between min and max.
 	static float nextFloat(float min, float max);
-	/** Returns a randomized "bool" with equal chance of being either true or false. */
+	/// Returns a randomized "bool" with equal chance of being either true or false.
 	static bool nextBool(int max);
 };
 }

@@ -4,24 +4,24 @@
 
 namespace ae
 {
-	/** Standard representation of a game entity. */
+	/// Standard representation of a game entity.
 	class Entity
 	{
 	public:
-		/** Add component. */
+		/// Add component.
 		template<class T>
 		void addComponent(const T& component)
 		{
 		}
 
-		/** Remove component. */
+		/// Remove component.
 		template<class T>
 		void removeComponent()
 		{
 		}
 
-		/** Get component. */
-		template<class T> T* component();
+		/// Get component.
+		template<class T> T* component();			
 		int id();
 
 		static Entity* Create()

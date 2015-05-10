@@ -6,9 +6,9 @@
 
 namespace ae
 {
-	/** Template class all components should inherit from. It is used to manage
-		class specific logic shared with all component such as generating a unique
-		class id used to identify a component. */
+	/// Template class all components should inherit from. It is used to manage
+	///	class specific logic shared with all component such as generating a unique
+	///	class id used to identify a component.
 	template<class T>
 	class Component : public AbstractComponent
 	{

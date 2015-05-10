@@ -2,7 +2,7 @@
 
 namespace ae
 {
-/** Facilitates general programming. */
+/// Facilitates general programming.
 class Utils
 {
 public:

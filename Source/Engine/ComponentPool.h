@@ -93,14 +93,14 @@
 //		return nullptr;
 //	}
 //
-//	/** Returns the index belonging to an id, returns "-1" if no index exists. */
+//	/// Returns the index belonging to an id, returns "-1" if no index exists.
 //	int indexFromId(int id)
 //	{
 //		if (id < m_indices.count())
 //			return m_indices[id];
 //		return -1;
 //	}
-//	/** Returns id belonging to index, id typically represents owner of value stored at index. */
+//	/// Returns id belonging to index, id typically represents owner of value stored at index.
 //	int idFromIndex(int index)
 //	{
 //		return m_ids[index];

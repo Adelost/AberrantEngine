@@ -43,6 +43,7 @@ namespace ae
 	StopWatch::StopWatch()
 	{
 		m_paused = false;
+		m_cpuPause = 0;
 		secsPerCpuCount();
 
 		start();

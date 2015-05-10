@@ -100,6 +100,9 @@
     <Filter Include="Tools\Containers\Stack">
       <UniqueIdentifier>{4575e808-c217-4f75-9718-f9dec1de0617}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Libs\LeakDetection">
+      <UniqueIdentifier>{ef656bf8-f180-4b69-b431-ef5af7c0daed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XAssert.cpp">
@@ -144,6 +147,9 @@
     <ClCompile Include="Message.cpp">
       <Filter>Tools\Message</Filter>
     </ClCompile>
+    <ClCompile Include="LeakDetection.cpp">
+      <Filter>Libs\LeakDetection</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="XAssert.h">
@@ -181,9 +187,6 @@
     </ClInclude>
     <ClInclude Include="Memory.h">
       <Filter>Libs\Memory</Filter>
-    </ClInclude>
-    <ClInclude Include="IgnoreMemleak.h">
-      <Filter>Misc\Macros</Filter>
     </ClInclude>
     <ClInclude Include="Console.h">
       <Filter>Libs\Console</Filter>
@@ -268,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="Stack.h">
       <Filter>Tools\Containers\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="LeakDetection.h">
+      <Filter>Libs\LeakDetection</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

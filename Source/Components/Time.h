@@ -16,8 +16,8 @@ public:
 		m_fpsCap = 360;
 	}
 
-	/** Calculates time for the next frame. Should only be called once per
-		frame at the start of the frame. */
+	/// Calculates time for the next frame. Should only be called once per
+	/// frame at the start of the frame.
 	void update();
 
 	void start()
@@ -35,20 +35,20 @@ public:
 		deltaTimer.resume();
 	}
 
-	/** Returns the time in seconds between previous frame and this frame. */
+	/// Returns the time in seconds between previous frame and this frame.
 	float delta()
 	{
 		return m_delta;
 	}
 
-	/** Returns delta time without any modifications. */
+	/// Returns delta time without any modifications.
 	float rawDelta()
 	{
 		return m_rawDelta;
 	}
 
-	/** Sets maximum allowed time delta between frames. This assures
-		consistency during low frame-rates. */
+	/// Sets maximum allowed time delta between frames. This assures
+	///	consistency during low frame-rates.
 	void setMaxAllowedDelta(float delta)
 	{
 		m_maxAllowedDelta = delta;
@@ -59,13 +59,13 @@ public:
 		return m_fpsCap;
 	}
 
-	/** Caps frame rate to specified frames per second. */
+	/// Caps frame rate to specified frames per second.
 	void setFpsCap(int fps)
 	{
 		m_fpsCap = fps;
 	}
 
-	/** The scale at which time is passing. Useful for slow motion effects. */
+	/// The scale at which time is passing. Useful for slow motion effects.
 	void setTimeScale(float scale)
 	{
 		m_timeScale = scale;

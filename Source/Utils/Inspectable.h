@@ -23,8 +23,8 @@ ae::ClassInfo& inspect() \
 
 namespace ae
 {
-	/** Allows introspection of subclasses. Only supports introspection of
-		member variables currently. */
+	/// Allows introspection of subclasses. Only supports introspection of
+	///	member variables currently.
 	class Inspectable
 	{
 	public:

@@ -6,17 +6,17 @@ namespace ae
 {
 	class Entity;
 
-	/** Allows access to logic shared with all components. */
+	/// Allows access to logic shared with all components.
 	class AbstractComponent
 	{
 	public:
-		/** Sets up a dependency to another component belonging to the same
-			entity and allows access to it.
-			
-			Should be used as a member inside a component and be initialized in
-			the constructor. Upon initialization it will create a direct link to
-			the other component. Lookup is based on entity id and the entity
-			must already have the underlying component. */
+		/// Sets up a dependency to another component belonging to the same
+		///	entity and allows access to it.
+		///	
+		///	Should be used as a member inside a component and be initialized in
+		///	the constructor. Upon initialization it will create a direct link to
+		///	the other component. Lookup is based on entity id and the entity
+		///	must already have the underlying component.
 		template<class T>
 		class Dependency
 		{

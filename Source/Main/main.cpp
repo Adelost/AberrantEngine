@@ -12,6 +12,7 @@
 #include <Utils/PoolArray.h>
 #include <Utils/StablePoolArray.h>
 #include <Utils/StopWatch.h>
+#include <Utils/LeakDetection.h>
 
 #include <string>
 #include <vector>
@@ -19,12 +20,12 @@
 
 using namespace ae;
 
-RELEASE_ONLY(const int ELEMENT_COUNT = 50000000; const int REPEATS = 1;);
+RELEASE_ONLY(const int ELEMENT_COUNT = 10000000; const int REPEATS = 10;);
 DEBUG_ONLY(const int ELEMENT_COUNT = 5; const int REPEATS = 3;);
 
-/** Template class to create a struct of varying sizes in bytes, with a minimum
-	of 4 bytes. Useful when measuring performance variance of container with
-	different sized elements. */
+/// Template class to create a struct of varying sizes in bytes, with a minimum
+///	of 4 bytes. Useful when measuring performance variance of container with
+///	different sized elements.
 template<int BYTES>
 struct Element
 {
@@ -52,7 +53,7 @@ void startElement(std::vector<E>* container, E& element)
 	container->push_back(element);
 }
 
-/** Profile the iteration performance of container "T" using element "E". */
+/// Profile the iteration performance of container "T" using element "E".
 template<class C, class E>
 void add(C& container)
 {
@@ -64,7 +65,7 @@ void add(C& container)
 	w.printTime("Add");
 }
 
-/** Profile the iteration performance of container "T" using element "E". */
+/// Profile the iteration performance of container "T" using element "E".
 template<class C, class E>
 void iterate(C& container)
 {
@@ -191,7 +192,7 @@ void profilePointerOverhead(std::string label)
 	std::cout << "Iter:\t" << w.timeMs() << " ms\tchecksum: " << checksum << "\n";
 }
 
-/** Profile the performance of various containers using element "E". */
+/// Profile the performance of various containers using element "E".
 template<class E>
 void profileElement()
 {
@@ -207,58 +208,191 @@ void profileElement()
 	//profilePointerOverhead<E>("Pointer Overhead");
 }
 
-int main()
+class IAaa
 {
-	Memory::enableLeakDetection();
+public:
+	virtual int& get() = 0;
+};
 
-	profileElement<Element<4>>();
+class Aaa : public IAaa
+{
+public:
+	Aaa(int i)
+	{
+		m_i = i;
+	}
+
+	int& get()
+	{
+		return m_i;
+	}
+
+	int& getR()
+	{
+		return m_i;
+	}
+
+private:
+	int m_i;
+};
 
 
+class Bbb
+{
+public:
+	Bbb(int i)
+	{
+		m_i = i;
+	}
+
+	int& get()
+	{
+		return m_i;
+	}
+
+private:
+	int m_i;
+	int m_i2;
+};
+
+
+void virtualOverhead()
+{
 	StopWatch w;
 	int total;
 
-	// ----
-
-	std::vector<Element<4>> v;
-	v.reserve(ELEMENT_COUNT);
-
-	w.start();
+	Array<Aaa> a;
 	for (int i = 0; i < ELEMENT_COUNT; i++)
-		v.push_back(i);
-	w.pause();
-	w.printTime("Vector time");
+		a << Aaa(i);
 
-	total = 0;
-	w.start();
-	for (auto i : v)
-		total += i.data;
-	w.pause();
-	w.printTime("Vector loop");
-
-	Console::print() << "checksum " << total;
-	
-
-	// ----
-	
-	Array<Element<4>> a;
-	a.reserve(ELEMENT_COUNT);
-
-	w.start();
+	Array<Bbb> b;
 	for (int i = 0; i < ELEMENT_COUNT; i++)
-		a.add(i);
-	w.pause();
-	w.printTime("Arr time");
+		b << Bbb(i);
 
-	total = 0;
-	w.start();
-	for (auto i : a)
-		total += i.data;
-	w.pause();
-	w.printTime("Arr loop");
+	{
+		Array<IAaa*> pa;
+		for (int i = 0; i < ELEMENT_COUNT; i++)
+			pa << &a[i];
 
-	Console::print() << "checksum " << total;
+		total = 0;
+		w.start();
+		for (int x = 0; x < REPEATS; x++)
+		{
+			for (auto i : pa)
+				total += i->get();
+		}
+		w.pause();
+		w.printTime("Virtual");
+		Console::print() << "checksum " << total;
+	}
 
-	// ----
+	{
+		Array<Aaa*> pa;
+		for (int i = 0; i < ELEMENT_COUNT; i++)
+			pa << &a[i];
+
+		total = 0;
+		w.start();
+		for (int x = 0; x < REPEATS; x++)
+		{
+			for (auto i : pa)
+				total += i->get();
+		}
+
+		w.pause();
+		w.printTime("Direct");
+		Console::print() << "checksum " << total;
+	}
+
+	{
+		Array<Aaa*> pa;
+		for (int i = 0; i < ELEMENT_COUNT; i++)
+			pa << &a[i];
+
+		total = 0;
+		w.start();
+		for (int x = 0; x < REPEATS; x++)
+		{
+			for (auto i : pa)
+				total += i->getR();
+		}
+
+		w.pause();
+		w.printTime("Direct");
+		Console::print() << "checksum " << total;
+	}
+
+	{
+		Array<Bbb*> pb;
+		for (int i = 0; i < ELEMENT_COUNT; i++)
+			pb << &b[i];
+
+		total = 0;
+		w.start();
+		for (int x = 0; x < REPEATS; x++)
+		{
+			for (auto i : pb)
+				total += i->get();
+		}
+		w.pause();
+		w.printTime("Normal");
+		Console::print() << "checksum " << total;
+	}
+}
+
+int main()
+{
+	LeakDetection::enable();
+	virtualOverhead();
+
+	//profileElement<Element<4>>();
+
+
+	//StopWatch w;
+	//int total;
+
+	//// ----
+
+	//std::vector<Element<4>> v;
+	//v.reserve(ELEMENT_COUNT);
+
+	//w.start();
+	//for (int i = 0; i < ELEMENT_COUNT; i++)
+	//	v.push_back(i);
+	//w.pause();
+	//w.printTime("Vector time");
+
+	//total = 0;
+	//w.start();
+	//for (auto i : v)
+	//	total += i.data;
+	//w.pause();
+	//w.printTime("Vector loop");
+
+	//Console::print() << "checksum " << total;
+
+
+	//// ----
+
+	//Array<Element<4>> a;
+	//a.reserve(ELEMENT_COUNT);
+
+	//w.start();
+	//for (int i = 0; i < ELEMENT_COUNT; i++)
+	//	a.add(i);
+	//w.pause();
+	//w.printTime("Arr time");
+
+	//total = 0;
+	//w.start();
+	//for (auto i : a)
+	//	total += i.data;
+	//w.pause();
+	//w.printTime("Arr loop");
+
+	//Console::print() << "checksum " << total;
+
+	//// ----
 
 	Console::pressToContinue();
 

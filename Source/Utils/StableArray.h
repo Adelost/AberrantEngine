@@ -4,13 +4,13 @@
 
 namespace ae
 {
-/** Similar to a dynamic-array, but which do not reallocate the
-	memory address of the stored elements when growing. It provides a fast
-	index-based access. However, elements are allocated in segments and are not
-	guaranteed to be stored in adjacent memory locations.
-
-	At the moment it only allows allocating uninitialized elements in which
-	initialized elements can be copied into. */
+/// A Similar to a dynamic-array, but which do not reallocate the
+///	memory address of the stored elements when growing. It provides a fast
+///	index-based access. However, elements are allocated in segments and are not
+///	guaranteed to be stored in adjacent memory locations.
+///
+///	At the moment it only allows allocating uninitialized elements in which
+///	initialized elements can be copied into.
 template<class T>
 class StableArray
 {
@@ -18,6 +18,7 @@ public:
 	StableArray()
 	{
 		m_nextPoolSize = 1;
+		m_count = 0;
 	}
 
 	~StableArray()
@@ -27,16 +28,16 @@ public:
 			delete[] p;
 	}
 
-	/** Make sure container can hold "size" number of elements without needing
-		allocate more memory. */
+	/// Make sure container can hold "size" number of elements without needing
+	///	allocate more memory.
 	void resize(int size)
 	{
 		reserve(size);
 		m_count = size;
 	}
 
-	/** If "size" exceeds capacity, more memory is allocated until capacity is
-		enough to hold "size" elements. */
+	/// If "size" exceeds capacity, more memory is allocated until capacity is
+	///	enough to hold "size" elements.
 	void reserve(int size)
 	{
 		if (size > capacity())
@@ -60,14 +61,14 @@ public:
 		}
 	}
 
-	/** Returns the number of elements the container can hold before needing to
-		allocate more memory. */
+	/// Returns the number of elements the container can hold before needing to
+	///	allocate more memory.
 	int capacity()
 	{
 		return m_values.count();
 	}
 
-	/** Returns the element at "index". */
+	/// Returns the element at "index".
 	T& operator[](int index)
 	{
 		return *m_values[index];

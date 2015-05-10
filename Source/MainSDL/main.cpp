@@ -165,9 +165,9 @@ int main()
 //RELEASE_ONLY(const int ELEMENT_COUNT = 100000000; const int REPEATS = 1;);
 //DEBUG_ONLY(const int ELEMENT_COUNT = 8; const int REPEATS = 3;);
 //
-///** Template class to create a struct of varying sizes in bytes, with a minimum
+///// Template class to create a struct of varying sizes in bytes, with a minimum
 //	of 4 bytes. Useful when measuring performance variance of container with
-//	different sized elements. */
+//	different sized elements.
 //template<int BYTES>
 //struct Element
 //{
@@ -195,7 +195,7 @@ int main()
 //	container.push_back(element);
 //}
 //
-///** Profile the iteration performance of container "T" using element "E". */
+///// Profile the iteration performance of container "T" using element "E".
 //template<class C, class E>
 //void add(C& container)
 //{
@@ -206,7 +206,7 @@ int main()
 //	w.printTime("Add");
 //}
 //
-///** Profile the iteration performance of container "T" using element "E". */
+///// Profile the iteration performance of container "T" using element "E".
 //template<class C, class E>
 //void iterate(C& container)
 //{
@@ -317,7 +317,7 @@ int main()
 //	std::cout << "Iter:\t" << w.timeMs() << " ms\tchecksum: " << checksum << "\n";
 //}
 //
-///** Profile the performance of various containers using element "E". */
+///// Profile the performance of various containers using element "E".
 //template<class E>
 //void profileElement()
 //{

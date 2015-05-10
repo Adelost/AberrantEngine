@@ -1,5 +1,5 @@
 #include <Utils/Console.h>
-#include <Utils/Memory.h>
+#include <Utils/LeakDetection.h>
 
 #include "TestUtils.h"
 #include "TestSimulation.h"
@@ -13,7 +13,7 @@ using namespace ae;
 
 int main()
 {
-	Memory::enableLeakDetection();
+	LeakDetection::enable();
 
 	Array<int> foo;
 

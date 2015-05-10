@@ -5,18 +5,18 @@
 
 namespace ae
 {
-	/** Facilitate strings conversion. Does not support any robust
-		error handling. */
+	/// Facilitate strings conversion. Does not support any robust
+	///	error handling.
 	class StringConvert
 	{
 	public:
-		/** Converts any input supporting standard output stream to text. */
+		/// Converts any input supporting standard output stream to text.
 		template<class T>
 		static std::string toString(const T& in);
 		static std::string toString(bool in);
-		/** Converts string to int. Returns 0 on fail. */
+		/// Converts string to int. Returns 0 on fail.
 		static int toInt(std::string s);
-		/** Converts string to float. Returns 0.0f on fail. */
+		/// Converts string to float. Returns 0.0f on fail.
 		static float toFloat(std::string s);
 	};
 

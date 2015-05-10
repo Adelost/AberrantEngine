@@ -5,6 +5,7 @@ namespace ae
 	ClassInfo::ClassInfo()
 	{
 		m_init = false;
+		m_target = nullptr; 
 	}
 
 	void ClassInfo::_init(std::string name)

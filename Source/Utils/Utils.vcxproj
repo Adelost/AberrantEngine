@@ -165,6 +165,7 @@
     <ClCompile Include="ClassInfo.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="FileOpener.cpp" />
+    <ClCompile Include="LeakDetection.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Member.cpp" />
     <ClCompile Include="Memory.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="Console.h" />
     <ClInclude Include="Cast.h" />
     <ClInclude Include="CppParser.h" />
+    <ClInclude Include="LeakDetection.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="PoolAllocator.h" />
     <ClInclude Include="StringRef.h" />
@@ -198,7 +200,6 @@
     <ClInclude Include="StablePoolArray.h" />
     <ClInclude Include="PoolArray.h" />
     <ClInclude Include="StableArray.h" />
-    <ClInclude Include="IgnoreMemleak.h" />
     <ClInclude Include="CallOnce.h" />
     <ClInclude Include="ClassInfo.h" />
     <ClInclude Include="DataTypes.h" />

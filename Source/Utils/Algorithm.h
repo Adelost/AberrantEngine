@@ -7,31 +7,31 @@
 
 namespace ae
 {
-/** Facilitates algorithms, such as sorting. */
+/// Facilitates algorithms, such as sorting.
 class Algorithm
 {
 public:
-	/** Randomly rearranges the first "count" elements. */
+	/// Randomly rearranges the first "count" elements.
 	template<class T>
 	static void shuffle(T* elements, int count);
-	/** Sorts the first elements "count" elements in ascending order. */
+	/// Sorts the first elements "count" elements in ascending order.
 	template<class T>
 	static void sort(T* elements, int count);
-	/** Like sort(), but also preserves the relative order of elements with
-		equivalent values, at the cost of some performance. */
+	/// Like sort(), but also preserves the relative order of elements with
+	///	equivalent values, at the cost of some performance.
 	template<class T>
 	static void stableSort(T* elements, int count);
-	/** Exchanges the values of the arguments. */
+	/// Exchanges the values of the arguments.
 	template<class T>
 	static void swap(T& left, T& right);
-	/** Variadic template which returns the maximum value among the specified
-		arguments. */
+	/// Variadic template which returns the maximum value among the specified
+	///	arguments.
 	template<class T>
 	static T maximum(const T& value);
 	template<class T, typename... Args>
 	static T maximum(const T& value, Args... args);
-	/** Variadic template which returns true if the specified value matches
-		any of the other arguments. */
+	/// Variadic template which returns true if the specified value matches
+	///	any of the other arguments.
 	template<class T, class U>
 	static bool any(const T& value, const U& arg);
 	template<class T, class U, class... Args>

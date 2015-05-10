@@ -1,9 +1,6 @@
 #include "Memory.h"
 
-#include "DebugOnly.h"
-
 #include <cstring> // memcpy, memmove
-#include <crtdbg.h> // _CrtSetDbgFlag
 
 namespace ae
 {
@@ -17,12 +14,7 @@ namespace ae
 		memmove(destination, source, bytes);
 	}
 
-	void Memory::enableLeakDetection()
-	{
-		DEBUG_ONLY(_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);)
-	}
-
-	void Memory::deallocateRaw(void* data)
+	void Memory::deallocate(void* data)
 	{
 		delete[] data;
 	}

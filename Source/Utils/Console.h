@@ -7,7 +7,7 @@
 
 namespace ae
 {
-	/** Makes writing console applications more convenient. */
+	/// Makes writing console applications more convenient.
 	class Console
 	{
 	public:
@@ -63,24 +63,24 @@ namespace ae
 		};
 		#pragma endregion
 
-		/** Pauses execution until a key is pressed. */
+		/// Pauses execution until a key is pressed.
 		static void pressToContinue();
-		/** Writes input added using the input stream operator. E.g.
-			Console::write() << "Hello World"; */
+		/// Writes input added using the input stream operator. E.g.
+		///	Console::write() << "Hello World";
 		static _Write write();
-		/** Same as write(), but ends output with a newline. */
+		/// Same as write(), but ends output with a newline.
 		static _PrintLn print();
-		/** Same as print(), but also underlines the printed text. */
+		/// Same as print(), but also underlines the printed text.
 		static _PrintTitle printTitle();
-		/** Same as printTitle(), but uses a smaller underline. */
+		/// Same as printTitle(), but uses a smaller underline.
 		static _PrintSubtitle printSubtitle();
-		/** Changes text color in console, where color is a value between 0-15.
-			Only supports Windows currently. */
+		/// Changes text color in console, where color is a value between 0-15.
+		///	Only supports Windows currently.
 		static void setColor(int color);
-		/** Changes text background color in console, where color is a value
-			between 0-15. Only supports Windows currently. */
+		/// Changes text background color in console, where color is a value
+		///	between 0-15. Only supports Windows currently.
 		static void setBackground(int color);
-		/** Restores any change in console color to default. */
+		/// Restores any change in console color to default.
 		static void restoreDefaultColors();
 	};
 

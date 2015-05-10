@@ -28,9 +28,9 @@ namespace ae
 			m_lastGap = 0;
 		}
 
-		/** Adds a value to the container and returns the index where it was stored.
-			The index should be saved and used to delete the element later on using
-			remove(). */
+		/// Adds a value to the container and returns the index where it was stored.
+		///	The index should be saved and used to delete the element later on using
+		///	remove().
 		int add(const T& value)
 		{
 			reserve(m_lastGap + 1);
@@ -64,7 +64,7 @@ namespace ae
 			std::cout << "\n";
 		}
 
-		/** Removes an element from the container based on its index. */
+		/// Removes an element from the container based on its index.
 		void remove(int index)
 		{
 			//xassert_msg(!isGap(index), "Element is already removed. ");
@@ -89,15 +89,15 @@ namespace ae
 			return m_firstGap;
 		}
 
-		/** Returns element at index, do not use to iterate as the array may contain
-			uninitialized elements; use the iterator instead. */
+		/// Returns element at index, do not use to iterate as the array may contain
+		///	uninitialized elements; use the iterator instead.
 		T& operator[](int index)
 		{
 			return m_elements[index];
 		}
 
-		/** Returns the number of elements the container can hold before needing to
-			allocate more memory. */
+		/// Returns the number of elements the container can hold before needing to
+		///	allocate more memory.
 		int capacity()
 		{
 			return m_capacity;
@@ -131,21 +131,21 @@ namespace ae
 			}
 		}
 
-		/** Returns the number of valid indices held by the container. The number of
-			indices is based on the number of stored elements, as well as potential
-			gaps left over from removed elements. */
+		/// Returns the number of valid indices held by the container. The number of
+		///	indices is based on the number of stored elements, as well as potential
+		///	gaps left over from removed elements.
 		int count() const
 		{
 			return m_lastGap;
 		}
 
-		/** Returns true if the container contains no elements. */
+		/// Returns true if the container contains no elements.
 		bool isEmpty() const
 		{
 			return count() == 0;
 		}
 
-		/** Returns true if the index contains no element. */
+		/// Returns true if the index contains no element.
 		bool isGap(int index) const
 		{
 			return m_gaps[index];

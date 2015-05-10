@@ -1,7 +1,7 @@
 #pragma once
 
 /* Forward declarations useful in header files. Only classes not usually changed
-   should be put here, similar to precompiled headers. */
+   should be put here, similar to precompiled headers.
 
 // Project includes
 
