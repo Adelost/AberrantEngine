@@ -8,7 +8,7 @@ namespace ae
 //! blocks and provides a fast index-based lookup.
 //!
 //! This is not a linked-list. It works similar to, and is almost as
-//! fast as, ae::Array in most situations, and has additional benefits.
+//! fast as, ae::Array in most situations, but has additional benefits.
 //!
 //!	- Elements are never reallocated when growing, pointers can safely 
 //!	  point to elements inside.

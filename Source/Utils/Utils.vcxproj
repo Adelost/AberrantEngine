@@ -183,6 +183,7 @@
     <ClInclude Include="Algorithm.h" />
     <ClInclude Include="Array.h" />
     <ClInclude Include="ArrayAllocator.h" />
+    <ClInclude Include="IndexableContainer.h" />
     <ClInclude Include="tests.h" />
     <ClInclude Include="UnitTest.h" />
     <ClInclude Include="Console.h" />

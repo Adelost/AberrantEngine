@@ -82,4 +82,4 @@ public:
 	int count;
 	int capacity;
 };
-}
+
