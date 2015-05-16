@@ -4,9 +4,12 @@
 
 namespace ae
 {
-/// References a substring of a std::string. Designed to improve performance of
-///	substring handling when manipulating strings. Calling toString() returns a
-///	copy of the referenced substring.
+//! References a substring of a std::string.
+//! 
+//! - Designed to improve performance of substring handling 
+//!   when manipulating strings.
+//! - Calling toString() returns a copy of the referenced
+//!   substring.
 class StringRef
 {
 public:
@@ -40,12 +43,12 @@ public:
 
 		return *this;
 	}
-	/// Returns a copy of the referenced substring.
+	//! Returns a copy of the referenced substring.
 	std::string toString() const
 	{
 		return m_source->substr(m_start, m_length);
 	}
-	/// Compares this StringRef with other StringRef. 0 = "String < "
+	//! Compares this StringRef with other StringRef. 0 = "String < "
 	int compare(const StringRef& other) const
 	{
 		return m_source->compare(m_start, m_length, *other.m_source, other.m_start, other.m_length);
@@ -59,8 +62,8 @@ public:
 	{
 		setSource(source.m_source, source.m_start, source.m_length);
 	}
-	/// Overrides the source with the specified text. Useful when
-	///	staging changes to a source text without affecting the source.
+	//! Overrides the source with the specified text. Useful when
+	//! staging changes to a source text without affecting the source.
 	void setText(std::string& text)
 	{
 		m_localSource = text;

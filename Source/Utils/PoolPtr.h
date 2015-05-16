@@ -5,12 +5,12 @@
 
 namespace ae
 {
-/// Allows fast allocation of objects. This is usually much faster than
-///	standard allocation using "new" and "delete".
-///
-///	Objects should be instantiated with the class similarly to using a
-///	smart pointer. Instantiated objects should also be deleted
-///	afterwards using the "release()" method.
+//! Allows fast allocation of objects. This is usually much faster than
+//! standard allocation using "new" and "delete".
+//! 
+//! Objects should be instantiated with the class similarly to using a
+//! smart pointer. Instantiated objects should also be deleted
+//! afterwards using the "release()" method.
 template<class T>
 class PoolPtr
 {
@@ -29,13 +29,13 @@ public:
 		return *this;
 	}
 
-	/// Allocates and assigns a copy of the specified object.
+	//! Allocates and assigns a copy of the specified object.
 	void set(const T& object)
 	{
 		m_index = s_pool.add(object);
 	}
 
-	/// Releases the current, all assigned.
+	//! Releases the current, all assigned.
 	void release()
 	{
 		s_pool.remove(m_index);
@@ -56,8 +56,8 @@ public:
 		return &get();
 	}
 
-	/// Preallocate memory for "size" number of elements to make
-	/// allocation faster.
+	//! Preallocate memory for "size" number of elements to make
+	//! allocation faster.
 	static void Reserve(int size)
 	{
 		s_pool.reserve(size);

@@ -13,9 +13,9 @@ namespace ae
 	public:
 		ClassInfo();
 
-		/// Returns name of the class.
+		//! Returns name of the class.
 		std::string name();
-		/// Returns member, or "nullptr" if member does not exist.
+		//! Returns member, or "nullptr" if member does not exist.
 		Member* member(char* name);
 
 		void _init(std::string name);

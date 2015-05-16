@@ -4,6 +4,7 @@
 
 namespace ae
 {
+	
 	void Console::pressToContinue()
 	{
 		std::cout << "\n\nPress any key to continue . . .";
@@ -16,9 +17,9 @@ namespace ae
 		return _Write();
 	}
 
-	Console::_PrintLn Console::print()
+	Console::_Print Console::print()
 	{
-		return _PrintLn();
+		return _Print();
 	}
 
 	Console::_PrintTitle Console::printTitle()
@@ -71,7 +72,7 @@ namespace ae
 		return m_copied;
 	}
 
-	Console::_PrintLn::~_PrintLn()
+	Console::_Print::~_Print()
 	{
 		if (!isCopied())
 			std::cout << "\n";
@@ -112,5 +113,15 @@ namespace ae
 	Console::_Write& Console::_Write::operator<<(bool in)
 	{
 		return *this << StringConvert::toString(in);
+	}
+
+	Console::_Print print()
+	{
+		return Console::print();
+	}
+
+	Console::_Write write()
+	{
+		return Console::write();
 	}
 }

@@ -1,25 +1,28 @@
+#include "TestUtils.h"
+//#include "TestSimulation.h"
+
 #include <Utils/Console.h>
 #include <Utils/LeakDetection.h>
-
-#include "TestUtils.h"
-#include "TestSimulation.h"
-
-
-#define CATCH_CONFIG_RUNNER
-#include <Catch/include/catch.hpp>
-
-#include <Utils/Array.h>
-using namespace ae;
+#include <Utils/UnitTest.h>
 
 int main()
 {
+	using namespace ae;
 	LeakDetection::enable();
-
-	Array<int> foo;
-
-	Catch::Session().run();
-
+	UnitTests::run();
 	Console::pressToContinue();
-
 	return 0;
 }
+
+//#include <Utils/tests.h>
+//#include <Utils/Console.h>
+//#include <Utils/LeakDetection.h>
+//
+//int main()
+//{
+//	using namespace ae;
+//	LeakDetection::enable();
+//	runTests();
+//	Console::pressToContinue();
+//	return 0;
+//}

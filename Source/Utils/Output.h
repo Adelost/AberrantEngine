@@ -7,7 +7,7 @@
 //
 
 #include <vector>
-/// Prints all elements of a std::vector.
+//! Prints all elements of a std::vector.
 template<class T>
 std::ostream& operator << (std::ostream& os, std::vector<T>& data)
 {
@@ -22,7 +22,7 @@ std::ostream& operator << (std::ostream& os, std::vector<T>& data)
 }
 
 #include "Array.h"
-/// Prints all elements of an Array.
+//! Prints all elements of an Array.
 template<class T>
 std::ostream& operator << (std::ostream& os, ae::Array<T>& data)
 {
@@ -37,7 +37,7 @@ std::ostream& operator << (std::ostream& os, ae::Array<T>& data)
 }
 
 #include "PoolArray.h"
-/// Prints all elements of a PoolArray.
+//! Prints all elements of a PoolArray.
 template<class T>
 std::ostream& operator << (std::ostream& os, ae::PoolArray<T>& data)
 {

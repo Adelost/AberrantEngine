@@ -15,11 +15,11 @@ public:
 	{
 	public:
 		void update();
-		/// Returns true if button currently is pressed.
+		//! Returns true if button currently is pressed.
 		bool isPressed(std::string name);
-		/// Returns true if button was pressed during the current frame.
+		//! Returns true if button was pressed during the current frame.
 		bool pressed(std::string name);
-		/// Returns true if button was released during the current frame.
+		//! Returns true if button was released during the current frame.
 		bool released(std::string name);
 		void set(std::string name, bool pressed);
 	};
@@ -47,18 +47,18 @@ public:
 		//button("Left");
 		//button("Right");
 	}
-	/// Returns true while the virtual button identified by name is held
-	///	down.
+	//! Returns true while the virtual button identified by name is held
+	//! down.
 	bool button(std::string name)
 	{
 		return m_buttons[name].state;
 	}
-	/// Returns true the first frame the button is released.
+	//! Returns true the first frame the button is released.
 	bool buttonUp(std::string name)
 	{
 		return m_buttons[name].up;
 	}
-	/// Returns true the first frame the button is pressed.
+	//! Returns true the first frame the button is pressed.
 	bool buttonDown(std::string name)
 	{
 		return m_buttons[name].down;

@@ -6,8 +6,8 @@
 
 namespace ae
 {
-/// A mix between a linked list and a pool allocator. Faster to add and
-///	remove elements than in a ordinary linked list.
+//! A mix between a linked list and a pool allocator. Faster to add and
+//! remove elements than in a ordinary linked list.
 template<class T>
 class PoolList
 {
@@ -156,7 +156,7 @@ NativePoolArray<typename PoolList<T>::Node> PoolList<T>::s_nodes;
 //		lastFree = -1;
 //	}
 //
-//	/// Adds value and returns index where value was stored
+//	//! Adds value and returns index where value was stored
 //	int add(const T& value)
 //	{
 //		// Get a valid index to put element
@@ -180,7 +180,7 @@ NativePoolArray<typename PoolList<T>::Node> PoolList<T>::s_nodes;
 //		}
 //	}
 //
-//	/// Returns a valid index to put new elements
+//	//! Returns a valid index to put new elements
 //	int nextFreeIndex()
 //	{
 //		// Recycle already free nodes or create

@@ -2,7 +2,7 @@
 
 namespace ae
 {
-/// Array like queue implementation.
+//! Array like queue implementation.
 template<class T>
 class Queue
 {

@@ -10,16 +10,16 @@ class ArrayAllocator
 public:
 	ArrayAllocator()
 	{
-		m_elements = nullptr;
-		m_count = 0;
-		m_capacity = 0;
+		elements = nullptr;
+		count = 0;
+		capacity = 0;
 	}
 
 	ArrayAllocator(int size)
 	{
-		m_elements = new T[size];
-		m_count = size;
-		m_capacity = size;
+		elements = new T[size];
+		count = size;
+		capacity = size;
 	}
 
 	void add()
@@ -28,7 +28,7 @@ public:
 
 	void addRaw(int count = 1)
 	{
-		resize(m_count + count);
+		resize(count + count);
 	}
 
 	void removRaw(int index)
@@ -36,50 +36,50 @@ public:
 
 	}
 
-	/// Constructs element at index.
+	//! Constructs element at index.
 	void construct(const T& element, int index)
 	{
-		Memory::construct(element, m_elements[m_count]);
+		Memory::construct(element, elements[count]);
 	}
 
-	/// Destructs element at index.
+	//! Destructs element at index.
 	void destruct(int index)
 	{
-		Memory::destroy(m_elements[index]);
+		Memory::destroy(elements[index]);
 	}
 
 	void reserve(int size)
 	{
-		if (size > m_capacity)
+		if (size > capacity)
 		{
-			if (m_capacity < 1)
-				m_capacity = 1;
-			while (m_capacity < size)
-				m_capacity *= 2;
+			if (capacity < 1)
+				capacity = 1;
+			while (capacity < size)
+				capacity *= 2;
 
-			T* tmp = Memory::allocate<T>(m_capacity);
-			Memory::copy(&m_elements[0], &tmp[0], m_count);
-			Memory::deallocate(m_elements);
-			m_elements = tmp;
+			T* tmp = Memory::allocate<T>(capacity);
+			Memory::copy(&elements[0], &tmp[0], count);
+			Memory::deallocate(elements);
+			elements = tmp;
 		}
 	}
 
 	void reserveExact(int size)
 	{
-		if (size > m_capacity)
+		if (size > capacity)
 		{
-			m_capacity = size;
+			capacity = size;
 
-			T* tmp = Memory::allocate(m_capacity);
-			Memory::copy(m_elements[0], tmp[0], m_count);
-			Memory::deallocate(m_elements);
-			m_elements = tmp;
+			T* tmp = Memory::allocate(capacity);
+			Memory::copy(elements[0], tmp[0], count);
+			Memory::deallocate(elements);
+			elements = tmp;
 		}
 	}
 
-private:
-	T* m_elements;
-	int m_count;
-	int m_capacity;
+public:
+	T* elements;
+	int count;
+	int capacity;
 };
 }

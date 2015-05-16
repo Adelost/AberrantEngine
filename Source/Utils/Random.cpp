@@ -1,6 +1,6 @@
 #include "Random.h"
 
-#include "StaticCall.h"
+#include "StaticInit.h"
 
 #include <stdlib.h> // srand
 #include <time.h> // time
@@ -8,7 +8,7 @@
 namespace ae
 {
 // Init constructor automatically
-STATIC_CALL(Random::initSeed();)
+STATIC_INIT(Random::initSeed();)
 
 void Random::initSeed()
 {
@@ -44,7 +44,7 @@ float Random::nextFloat(float min, float max)
 	return min + random;
 }
 
-bool Random::nextBool(int max)
+bool Random::nextBool()
 {
 	return next(1) == 0;
 }

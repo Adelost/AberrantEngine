@@ -50,21 +50,21 @@ public:
 		return false;
 	}
 
-	/// Replaces the current match with specified text.
+	//! Replaces the current match with specified text.
 	void replace(std::string text)
 	{
 		m_match = text;
 	}
 
-	/// Returns the full match.
+	//! Returns the full match.
 	std::string match()
 	{
 		return match(0);
 	}
 
 
-	/// Returns specified capture group. "0" for full match, "1" for first
-	///	capture group, "2" for second, and so on.
+	//! Returns specified capture group. "0" for full match, "1" for first
+	//! capture group, "2" for second, and so on.
 	std::string match(int index)
 	{
 		std::string match = m_smatch[index];
@@ -72,8 +72,8 @@ public:
 		return match;
 	}
 
-	/// Reformats the current match. Use "$0" for full match, "$1" for first
-	///	capture group, "$2" for second, and so on.
+	//! Reformats the current match. Use "$0" for full match, "$1" for first
+	//! capture group, "$2" for second, and so on.
 	void format(std::string format)
 	{
 		m_match = m_smatch.format(format);
@@ -86,7 +86,7 @@ public:
 
 
 private:
-	/// Go to next match.
+	//! Go to next match.
 	void next()
 	{
 		m_output += m_smatch.prefix();

@@ -1,10 +1,9 @@
 #pragma once
 
-/// Custom assert macros. More safe than standard assert, and a prints a nicer
-///	call stack.
-///
-///	Credits goes to this article by Charles Nicholson:
-///	http://cnicholson.net/2009/02/stupid-c-tricks-adventures-in-assert/
+//! Custom assert macros. More safe than standard assert, and a prints a nicer
+//! call stack.
+//! //! Credits goes to this article by Charles Nicholson:
+//! http://cnicholson.net/2009/02/stupid-c-tricks-adventures-in-assert/
 #ifdef _DEBUG
 #define _XASSERTS_ENABLED // Uncomment this line to silence all xassert
 #endif

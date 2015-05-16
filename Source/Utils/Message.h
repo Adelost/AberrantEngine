@@ -13,9 +13,9 @@ public:
 	template<class T> Message& operator<<(const T& value);
 	template<class T> T get();
 	void send();
-	/// The message will not be sent to subsequent subscribers
+	//! The message will not be sent to subsequent subscribers
 	void accept();
-	/// Returns true if the message has been accepted by someone
+	//! Returns true if the message has been accepted by someone
 	bool accepted();
 	int byteIndex();
 

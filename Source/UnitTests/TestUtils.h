@@ -1,12 +1,9 @@
 #pragma once
 
-#define CATCH_CONFIG_RUNNER
-
-#include "Catch.h"
-
-using namespace ae;
-
+#include <Utils/UnitTest.h>
+#include <Utils/Console.h>
 #include <Utils/Array.h>
+using namespace ae;
 
 TEST_CASE("Array")
 {
@@ -71,6 +68,113 @@ TEST_CASE("Array")
 			total += i;
 
 		REQUIRE(total == 10);
+	}
+}
+
+#include <Utils/List.h>
+TEST_CASE("List")
+{
+	List<int> l;
+	l.resize(1);
+}
+
+#include <Utils/Random.h>
+#include <Utils/Algorithm.h>
+TEST_CASE("Random")
+{
+	SECTION("next()")
+	{
+		REQUIRE(Random::next(1) == 0);
+		REQUIRE(Random::nextUniform(0, 0) == 0);
+		REQUIRE(Algorithm::any(Random::nextBool(), false, true));
+
+		float f;
+		f = Random::nextFloat();
+		REQUIRE(f >= 0.0f);
+		REQUIRE(f <= 1.0f);
+		f = Random::nextFloat(0.0f, 0.0f);
+		REQUIRE(f == 0.0f);
+	};
+
+	SECTION("rand max()")
+	{
+		REQUIRE(Random::next(1) == 0);
+		REQUIRE(Random::nextUniform(0, 0) == 0);
+		REQUIRE(Algorithm::any(Random::nextBool(), false, true));
+
+		float f;
+		f = Random::nextFloat();
+		REQUIRE(f >= 0.0f);
+		REQUIRE(f <= 1.0f);
+		f = Random::nextFloat(0.0f, 0.0f);
+		REQUIRE(f == 0.0f);
+	};
+
+	SECTION("initSeed()")
+	{
+		int seed = Random::next(100);
+		Random::setSeed(seed);
+		int r1 = Random::next(100);
+		Random::setSeed(seed);
+		int r2 = Random::next(100);
+		REQUIRE(r1 == r2);
+	};
+}
+
+#include <Utils/Algorithm.h>
+
+TEST_CASE("Algorithm")
+{
+	SECTION("reordering")
+	{
+		Array<int> a;
+		a << 0 << 1 << 2;
+
+		SECTION("shuffle()")
+		{
+			Algorithm::shuffle(a.raw(), a.count());
+		}
+
+		SECTION("sort()")
+		{
+			a << 4 << -1;
+			Algorithm::sort(a.raw(), a.count());
+			REQUIRE(a.first() == -1);
+			REQUIRE(a.last() == 4);
+		}
+
+		SECTION("stableSort()")
+		{
+			a << 4 << -1;
+			Algorithm::stableSort(a.raw(), a.count());
+			REQUIRE(a.first() == -1);
+			REQUIRE(a.last() == 4);
+		}
+	}
+
+	SECTION("maximum()")
+	{
+		REQUIRE(Algorithm::maximum(1) == 1);
+		REQUIRE(Algorithm::maximum(1, 2) == 2);
+		REQUIRE(Algorithm::maximum(2, 1) == 2);
+		REQUIRE(Algorithm::maximum(1, 2, 3) == 3);
+		REQUIRE(Algorithm::maximum(2, 3, 1) == 3);
+		REQUIRE(Algorithm::maximum(3, 1, 2) == 3);
+	}
+
+	SECTION("any()")
+	{
+		REQUIRE(Algorithm::any(std::string("a"), "b", "c", "a"));
+		REQUIRE(Algorithm::any(std::string("a"), "b", "c", "d") == false);
+
+		REQUIRE(Algorithm::any("a", "a"));
+		REQUIRE(Algorithm::any("a", "b") == false);
+		REQUIRE(Algorithm::any("a", "b", "a", "c"));
+		REQUIRE(Algorithm::any("a", "b", "c", "a"));
+		REQUIRE(Algorithm::any("a", "b", "c", "d") == false);
+
+		REQUIRE(Algorithm::any(2, 1, 2, 3));
+		REQUIRE(Algorithm::any(2, 1, 3) == false);
 	}
 }
 
@@ -259,36 +363,6 @@ TEST_CASE("introspection")
 
 TEST_CASE("messages")
 {
-}
-
-#include <Utils/Algorithm.h>
-
-TEST_CASE("Algorithm")
-{
-	SECTION("maximum")
-	{
-		REQUIRE(Algorithm::maximum(1) == 1);
-		REQUIRE(Algorithm::maximum(1, 2) == 2);
-		REQUIRE(Algorithm::maximum(2, 1) == 2);
-		REQUIRE(Algorithm::maximum(1, 2, 3) == 3);
-		REQUIRE(Algorithm::maximum(2, 3, 1) == 3);
-		REQUIRE(Algorithm::maximum(3, 1, 2) == 3);
-	}
-
-	SECTION("any")
-	{
-		REQUIRE(Algorithm::any(std::string("a"), "b", "c", "a"));
-		REQUIRE(Algorithm::any(std::string("a"), "b", "c", "d") == false);
-
-		REQUIRE(Algorithm::any("a", "a"));
-		REQUIRE(Algorithm::any("a", "b") == false);
-		REQUIRE(Algorithm::any("a", "b", "a", "c"));
-		REQUIRE(Algorithm::any("a", "b", "c", "a"));
-		REQUIRE(Algorithm::any("a", "b", "c", "d") == false);
-
-		REQUIRE(Algorithm::any(2, 1, 2, 3));
-		REQUIRE(Algorithm::any(2, 1, 3) == false);
-	}
 }
 
 #include <Utils/StringRef.h>

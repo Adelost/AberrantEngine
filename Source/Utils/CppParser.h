@@ -42,7 +42,7 @@ public:
 
 				startElement();
 			}
-			//// Comments
+			///! Comments
 			//else if (token("/**"))
 			//{
 			//	endElement();

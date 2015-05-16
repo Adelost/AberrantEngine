@@ -103,6 +103,9 @@
     <Filter Include="Libs\LeakDetection">
       <UniqueIdentifier>{ef656bf8-f180-4b69-b431-ef5af7c0daed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tools\UnitTest">
+      <UniqueIdentifier>{6c5438c1-bd7e-42c2-b00b-e52f74a2cf93}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="XAssert.cpp">
@@ -150,6 +153,7 @@
     <ClCompile Include="LeakDetection.cpp">
       <Filter>Libs\LeakDetection</Filter>
     </ClCompile>
+    <ClCompile Include="tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="XAssert.h">
@@ -163,9 +167,6 @@
     </ClInclude>
     <ClInclude Include="StringConvert.h">
       <Filter>Libs\Converters</Filter>
-    </ClInclude>
-    <ClInclude Include="StaticCall.h">
-      <Filter>Misc\Macros</Filter>
     </ClInclude>
     <ClInclude Include="CallOnce.h">
       <Filter>Misc\Macros</Filter>
@@ -227,9 +228,6 @@
     <ClInclude Include="Queue.h">
       <Filter>Tools\Containers\Queue</Filter>
     </ClInclude>
-    <ClInclude Include="StableArray.h">
-      <Filter>Tools\Containers\Arrays</Filter>
-    </ClInclude>
     <ClInclude Include="Time.h">
       <Filter>Libs\Time</Filter>
     </ClInclude>
@@ -274,6 +272,16 @@
     </ClInclude>
     <ClInclude Include="LeakDetection.h">
       <Filter>Libs\LeakDetection</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitTest.h">
+      <Filter>Tools\UnitTest</Filter>
+    </ClInclude>
+    <ClInclude Include="tests.h" />
+    <ClInclude Include="StaticInit.h">
+      <Filter>Misc\Macros</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Tools\Containers\Arrays</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

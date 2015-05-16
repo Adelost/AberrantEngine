@@ -4,40 +4,42 @@
 
 namespace ae
 {
-/// A Similar to a dynamic-array, but which do not reallocate the
-///	memory address of the stored elements when growing. It provides a fast
-///	index-based access. However, elements are allocated in segments and are not
-///	guaranteed to be stored in adjacent memory locations.
-///
-///	At the moment it only allows allocating uninitialized elements in which
-///	initialized elements can be copied into.
+//! A resizable container, that stores elements in semi-contiguous
+//! blocks and provides a fast index-based lookup.
+//!
+//! This is not a linked-list. It works similar to, and is almost as
+//! fast as, ae::Array in most situations, and has additional benefits.
+//!
+//!	- Elements are never reallocated when growing, pointers can safely 
+//!	  point to elements inside.
+//!	- Elements are not guaranteed to be stored adjacent to other elements.
 template<class T>
-class StableArray
+class List
 {
 public:
-	StableArray()
+	List()
 	{
 		m_nextPoolSize = 1;
 		m_count = 0;
 	}
 
-	~StableArray()
+	~List()
 	{
 		// Release all allocated pools
 		for (T* p : m_pools)
 			delete[] p;
 	}
 
-	/// Make sure container can hold "size" number of elements without needing
-	///	allocate more memory.
+	//! Make sure container can hold "size" number of elements without needing
+	//! allocate more memory.
 	void resize(int size)
 	{
 		reserve(size);
 		m_count = size;
 	}
 
-	/// If "size" exceeds capacity, more memory is allocated until capacity is
-	///	enough to hold "size" elements.
+	//! If "size" exceeds capacity, more memory is allocated until capacity is
+	//! enough to hold "size" elements.
 	void reserve(int size)
 	{
 		if (size > capacity())
@@ -61,14 +63,14 @@ public:
 		}
 	}
 
-	/// Returns the number of elements the container can hold before needing to
-	///	allocate more memory.
+	//! Returns the number of elements the container can hold before needing to
+	//! allocate more memory.
 	int capacity()
 	{
 		return m_values.count();
 	}
 
-	/// Returns the element at "index".
+	//! Returns the element at "index".
 	T& operator[](int index)
 	{
 		return *m_values[index];
@@ -90,7 +92,7 @@ public:
 	class Iterator
 	{
 	public:
-		Iterator(StableArray* host, int index)
+		Iterator(List* host, int index)
 		{
 			m_host = host;
 			m_index = index;
@@ -114,7 +116,7 @@ public:
 		}
 
 	private:
-		StableArray* m_host;
+		List* m_host;
 		int m_index;
 
 	};

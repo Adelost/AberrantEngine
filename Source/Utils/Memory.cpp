@@ -16,6 +16,6 @@ namespace ae
 
 	void Memory::deallocate(void* data)
 	{
-		delete[] data;
+		free(data);
 	}
 }

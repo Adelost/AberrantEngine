@@ -174,6 +174,7 @@
     <ClCompile Include="StopWatch.cpp" />
     <ClCompile Include="Format.cpp" />
     <ClCompile Include="StringConvert.cpp" />
+    <ClCompile Include="tests.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="_WindowsConsole.cpp" />
     <ClCompile Include="XAssert.cpp" />
@@ -182,6 +183,8 @@
     <ClInclude Include="Algorithm.h" />
     <ClInclude Include="Array.h" />
     <ClInclude Include="ArrayAllocator.h" />
+    <ClInclude Include="tests.h" />
+    <ClInclude Include="UnitTest.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Cast.h" />
     <ClInclude Include="CppParser.h" />
@@ -199,7 +202,7 @@
     <ClInclude Include="Random.h" />
     <ClInclude Include="StablePoolArray.h" />
     <ClInclude Include="PoolArray.h" />
-    <ClInclude Include="StableArray.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="CallOnce.h" />
     <ClInclude Include="ClassInfo.h" />
     <ClInclude Include="DataTypes.h" />
@@ -214,7 +217,7 @@
     <ClInclude Include="NativePoolArray.h" />
     <ClInclude Include="PoolList.h" />
     <ClInclude Include="Queue.h" />
-    <ClInclude Include="StaticCall.h" />
+    <ClInclude Include="StaticInit.h" />
     <ClInclude Include="StopWatch.h" />
     <ClInclude Include="Format.h" />
     <ClInclude Include="StringConvert.h" />

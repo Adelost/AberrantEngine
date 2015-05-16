@@ -4,36 +4,36 @@
 
 namespace ae
 {
-	/// High-precision time measuring class. The timer starts automatically
-	///	during initialization, but may also be started using start(). */
+	//! High-precision time measuring class. The timer starts automatically
+	//! during initialization, but may also be started using start(). */
 	class StopWatch
 	{
 	public:
 		StopWatch();
 
-		/// Resets any accumulated time and starts the timer. */
+		//! Resets any accumulated time and starts the timer. */
 		void start();
-		/// Pauses the timer. */
+		//! Pauses the timer. */
 		void pause();
-		/// Resumes the timer from a paused state. */
+		//! Resumes the timer from a paused state. */
 		void resume();
 
-		/// Prints elapsed time in milliseconds to console. */
+		//! Prints elapsed time in milliseconds to console. */
 		void printTime();
-		/// Prints elapsed time in milliseconds to console. */
+		//! Prints elapsed time in milliseconds to console. */
 		void printTime(std::string label);
 
-		/// Returns elapsed time in seconds. */
+		//! Returns elapsed time in seconds. */
 		float time();
-		/// Returns elapsed time in whole milliseconds. */
+		//! Returns elapsed time in whole milliseconds. */
 		int timeMs();
-		/// Returns elapsed time in milliseconds. */
+		//! Returns elapsed time in milliseconds. */
 		float timeMsFloat();
-		/// Returns elapsed time in nanoseconds to console. */
+		//! Returns elapsed time in nanoseconds to console. */
 		int timeNano();
-		/// Returns time since last pause. */
+		//! Returns time since last pause. */
 		float pausedTime();
-		/// Returns true if the timer is currently paused. */
+		//! Returns true if the timer is currently paused. */
 		bool isPaused();
 
 	private:

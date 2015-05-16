@@ -1,7 +1,7 @@
 #include "StopWatch.h"
 
 #include "Math.h"
-#include "StaticCall.h"
+#include "StaticInit.h"
 
 #include <cstdint>
 #include <iostream>
@@ -33,7 +33,7 @@ namespace ae
 		}
 	}
 
-	STATIC_CALL(
+	STATIC_INIT(
 		// Frequency need only be queried upon application
 		// initialization, and the result can be cached 
 		// (see "http://msdn.microsoft.com/en-us/library/windows/desktop/ms644905(v=vs.85).aspx").
